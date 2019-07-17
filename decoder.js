@@ -11,6 +11,7 @@ function enterdecode(e){
     }catch(err){
       $('<p style="color:red;text-align:center">密钥不匹配</p>').appendTo("#key_input")
       $("#key").val('');
+	  setTimeout('$("body p:eq(0)").remove()',3000)
     }
   }
 }
