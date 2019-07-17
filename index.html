@@ -1,0 +1,225 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <!-- 接着引入API和JQuery： -->
+    <script type="text/JavaScript" src="https://api.map.baidu.com/api?v=2.0&ak=Ra7pfVaOAGRU0zCsACiQAduq6wLOHIH0"></script>
+    <script type="text/JavaScript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <title>桐高2019届300班蹭饭图</title>
+    <!-- 在body标签中加入div用于显示地图 -->
+    <!-- 最后设置div样式 -->
+    <style type="text/css">
+body, html,#allmap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin:0;
+  font-family:"微软雅黑";
+}
+
+.search_box{
+  position: absolute;
+  top: 10px;
+  text-align: right;
+}
+#key{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.infoUniversity{
+  border-radius: 21px;
+  background-color: #000099;
+  color: #ddd;
+  text-shadow: 1px 1px 3px #000;
+  font-size: 1.2em;
+  opacity: 0.5;
+  position: absolute;
+  width: 80%;
+  max-width: 400px;
+  height: 30%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  padding: 5px;
+  overflow-y: scroll;
+}
+    </style>
+
+    <div id="allmap"></div>
+    <!-- 三、开始定位 -->
+    <script type="text/javascript">
+      var map = new BMap.Map("allmap");//创建地图实例
+var current_id = 0;
+function initMap() {
+  //初始化地图 默认加载北京天安门
+  var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_RIGHT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+  map.addControl(ctrl_nav);
+  //向地图中添加缩略图控件
+  var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+  map.addControl(ctrl_ove);
+  //向地图中添加比例尺控件
+  var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+  map.addControl(ctrl_sca);
+  aerialView();
+  //新建标注
+  universities.forEach(setMarker);
+}
+function aerialView(){
+  clearInfoDiv();
+  map.centerAndZoom(new BMap.Point(119,35),6);//初始化地图，point为中心点，缩放级别为6
+}
+function setMarker(data, index){
+  var point = new BMap.Point(data.Lng, data.Lat);
+  var mk = new BMap.Marker(point);
+  var label = new BMap.Label('<b>'+data.University+'</b>');
+  data.Marker = mk;
+  mk.setLabel(label);
+  mk.disableDragging();// 不可拖拽
+  map.addOverlay(mk);
+  label.setStyle({
+    //borderColor: "#808080",
+    borderWidth: 0,
+    color: "#ddd",
+    cusor: "pointer",
+    backgroundColor: "#ec2d2d"
+  });
+  //给标注点添加点击事件。使用立即执行函数和闭包
+  //Closure: function in function, lenthening the life time of variable
+  (function() {
+    mk.addEventListener("click",function(){
+      showInfo(data);
+    });
+  })();
+  (function() {
+    label.addEventListener("click",function(){
+      showInfo(data);
+    });
+  })();
+}
+
+function showInfo(data, hilite=-1){
+  clearInfoDiv();
+  var sContent = '<div class="infoUniversity" onclick="clearInfoDiv()">'
+  if (hilite == -2){
+    sContent += '<b>' + data.University + '</b>'
+  }else{
+    sContent += data.University
+  };
+  sContent += '<ul>';
+  data.Students.forEach(function(student, index){
+    var studentInfo = student.split("@");
+    var studentHTML = '<li calss="info_li">' + studentInfo[0];
+    if (studentInfo.length > 1){
+      var attr = [ '专业：','电话：']
+      studentHTML += '<ul>'
+      for (var i=1; i<studentInfo.length; i++){
+        info = studentInfo[i]
+        if (info != ''){
+          studentHTML += '<li>' + attr[i-1] + info + '</li>'
+        }
+      }
+      studentHTML += '</ul>'
+    }
+    studentHTML += '</li>'
+    if (index == hilite){
+      sContent += '<b>' + studentHTML + '</b>'
+    }else{
+      sContent += studentHTML
+    }});
+  sContent += '</ul><p style="font-size: 12px; align: center"><br/>轻触关闭窗口</p></div>';
+  map.setCenter(data.Marker.getPosition());
+  sContent = $.parseHTML(sContent);
+  $(sContent).appendTo("body")
+  $("body").add(sContent);
+}
+function clearInfoDiv(){
+  $(".infoUniversity").remove()
+}
+function search(){
+  if ($("#search_button").text() == "搜索"){
+    $("#search_button").text("下个");
+    current_id = 0;
+    query = $("#search_input").val();
+    results = getAll(query);
+    console.log(results);
+  }
+  current_id += 1;
+  if (current_id >= results.length){
+    current_id = 0
+  }
+  showInfo(results[current_id].item, results[current_id].hilite);
+}
+function entersearch(event){
+  if (event.keyCode == 13){
+    search();
+  }else{
+    $("#search_button").text("搜索");
+  }
+}
+function getAll(query){
+  results = []
+  console.log(current_id);
+  for(var i = 0; i < universities.length; i++){
+    data = universities[i];
+    students = data.Students
+    for(var j = 0; j < students.length; j++){
+      if (chrsInStr(query, students[j])){
+        results.push({item: data, hilite: j});
+      }
+    };
+  };
+  for(var i = 0,len = universities.length; i < len; i++){
+    data = universities[i];
+    if (chrsInStr(query, data.University)){
+      results.push({item: data, hilite: -2})
+    }
+  };
+  return results
+}
+//简称必须是全称中按顺序取的字
+function chrsInStr(chrs, str){
+  j = 0
+  for (var i=0; i < chrs.length; i++){
+    chr = chrs.charAt(i);
+    while (str.charAt(j) != chr){
+      j++;
+      if (j == str.length){
+        return false
+      }
+    }
+    j++;
+  }
+  return true
+}
+    </script>
+    <!--Decryption{{{-->
+    <script>
+      function enterdecode(e){
+        if (e.keyCode == 13){
+          key = $("#key").val();
+          data = 'U2FsdGVkX18lELSocitUItbOiE0xh4kQm2XsEHEXiFu3LwGSXBGQ4J6Dv1mo8AGtmfVUn6fPaM9bA/nNHM+V5ga/PadoPY8O+YilWI5zdK2DDKLWtsJMWTxpRVK3hQmtQWaZfauS1HSrfiT4QKGQa0AuTV0nUtpsX2J9sEQckfPLttr2gCIojxf6bEfhipWgpNcPQugcUibhdUMUkMLSJ4biAp4haLcL/5rEDKCdt4XoceeXwgzgNcnP3FJqPHhSgfx21j9ALlJKeNvdp06escBxsFuj4T2PSry8nzKP7T0sjSj7pc4xHflC0u7TsZFXURKdHqFuZVGTBF71muF30XjMiL2uLVGnoQzNxaIFHdiD29YGYHJqt8QcFjH9sLHfz0WDzYdaEVgbeCu3b7I0hfHIe/O9B5m1pkNXZE1Qw3FGYjJ4YW1zUECizUvglWPTAzCG6WP7Hw1UD7UuL6ZWm413f9S5yB3SMpUKBR3sQqiXGXUdXOVQQ0P1PfvweL2Fz1SSDjg+ODMIM+tP4hPXq5at8/hOvxJHn19jZZ3s+JnR/G30sqrRDZ621502tsdTyBfHAYJ7w4bHJxZy6uVXfkPZmniRhGSmBCNhi3lx7lCq4lPtuldxqJSNDfI0GpyUr/7ntVu8jY8bWY+5Eh+OLGkt40/B9O3QFNf5d+QH8MfKjBdOAI50V4gtJHFL+w03+9+5BFc7yj1f+jGQLm5zDTkSZni7DqFRHDoUjDoSkXpMvldpkaaYwsAzycUT+zN9Mj8l/PXBR6BXfyWgIsCH1VQOtWtLj8uTnNpdgF7osiBgsoG7EBPtsUnLP0UWzDOQcD1sloxa1smTLQdMXP5BagnmbFChAaHxN3W5HMPED/uk2jOz633ERxVVTQE4dntt'
+          d=CryptoJS.AES.decrypt(data, key)
+          e=CryptoJS.enc.Latin1.stringify(d)
+          f=decodeURIComponent(escape(window.atob(e)))
+          eval(f)
+          if (typeof universities !== "undefined"){
+            console.log('YES')
+            initMap()
+            $("#key").remove();
+          }
+        }
+      }
+    </script>
+    <!--}}}-->
+  </head>
+  <body>
+      <input id="key" type="password" placeholder="我们的密钥" onkeydown="enterdecode(event)"/>
+    <div class="search_box">
+      <button onclick="aerialView()">鸟瞰</button>
+      <input id="search_input" onkeydown="entersearch(event)"/>
+      <button id="search_button" onclick="search()">搜索</button>
+    </div>
+  </body>
+</html>
