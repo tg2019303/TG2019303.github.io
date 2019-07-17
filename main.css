@@ -9,7 +9,7 @@ body, html,#allmap {
 .search_box{
   position: absolute;
   top: 10px;
-  text-align: right;
+  text-align: left;
 }
 #key_input{
   position: absolute;
