@@ -14,10 +14,12 @@
     <script type="text/javascript" src="decoder.js"></script>
   </head>
   <body>
+    <div id="key_input">
       <input id="key" type="password" placeholder="我们的密钥 | 回车确认"  autofocus onkeydown="enterdecode(event)"/>
+      </div>
     <div class="search_box">
       <button onclick="aerialView()">鸟瞰</button>
-      <input id="search_input" placeholder="找人/大学" onkeydown="entersearch(event)"/>
+      <input id="search_input" placeholder="人/大学/专业" onkeydown="entersearch(event)"/>
       <button id="search_button" onclick="search()">搜索</button>
     </div>
   </body>

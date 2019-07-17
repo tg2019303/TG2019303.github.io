@@ -1,14 +1,15 @@
 function enterdecode(e){
   if (e.keyCode == 13){
-    key = $("#key").val();
-    d=CryptoJS.AES.decrypt(data, key)
-    e=CryptoJS.enc.Latin1.stringify(d)
-    f=decodeURIComponent(escape(window.atob(e)))
-    eval(f)
-    if (typeof universities !== "undefined"){
-      console.log('YES')
+    try{
+      key = $("#key").val();
+      d=CryptoJS.AES.decrypt(data, key)
+      e=CryptoJS.enc.Latin1.stringify(d)
+      f=decodeURIComponent(escape(window.atob(e)))
+      eval(f)
       initMap()
-      $("#key").remove();
+      $("#key_input").remove();
+    }catch(err){
+      $('<p style="color:red;text-align:center">密钥不匹配</p>').appendTo("#key_input")
     }
   }
 }
