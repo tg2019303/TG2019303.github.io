@@ -10,6 +10,7 @@ function enterdecode(e){
       $("#key_input").remove();
     }catch(err){
       $('<p style="color:red;text-align:center">密钥不匹配</p>').appendTo("#key_input")
+      $("#key").val('');
     }
   }
 }
