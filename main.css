@@ -1,0 +1,36 @@
+body, html,#allmap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin:0;
+  font-family:"微软雅黑";
+}
+
+.search_box{
+  position: absolute;
+  top: 10px;
+  text-align: right;
+}
+#key{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.infoUniversity{
+  border-radius: 21px;
+  background-color: #000099;
+  color: #ddd;
+  text-shadow: 1px 1px 3px #000;
+  font-size: 1.2em;
+  opacity: 0.5;
+  position: absolute;
+  width: 80%;
+  max-width: 400px;
+  height: 30%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  padding: 5px;
+  overflow-y: scroll;
+}
