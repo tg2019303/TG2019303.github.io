@@ -13,9 +13,9 @@ body, html,#allmap {
 }
 #key_input{
   position: absolute;
-  top: 20%;
+  top: 80px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
 }
 .infoUniversity{
   border-radius: 21px;
