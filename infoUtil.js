@@ -1,12 +1,19 @@
 function showInfo(data, hilite=-1){
   clearInfoDiv();
-  var sContent = '<div class="infoUniversity" onclick="clearInfoDiv()">'
+  var sContent = '<div class="infoUniversity">'
   if (hilite == -2){
     sContent += '<b>' + data.University + '</b>'
   }else{
     sContent += data.University
   };
-  sContent += '<ul>';
+  sContent += '<div class="open_map_container"><button onclick="toggleOpenMap()" id="open_map_trigger">打开地图</button><div id="open_maps">';
+  sContent += `<a href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo> 百度地图 </a>`;
+  sContent += `<a href="https://apis.map.qq.com/uri/v1/marker?marker=coord:${data.Lat},${data.Lng};title:${data.University};&referer=myapp"> 腾讯地图 </a>`
+  sContent += `<a href="//uri.amap.com/marker?position=${data.Lng},${data.Lat}&name=${data.University}&src=mypage&coordinate=gaode&callnative=0"> 高德地图 </a>`
+  sContent +='<br/><p>注意：腾讯和高德的定位会有偏差，如要使用请自行调整</p>'
+  // $("#open_map_trigger").click();
+  sContent += '</div></div>'
+  sContent += '<ul onclick="clearInfoDiv()">';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
     var studentHTML = '<li calss="info_li">' + studentInfo[0];
@@ -35,4 +42,7 @@ function showInfo(data, hilite=-1){
 }
 function clearInfoDiv(){
   $(".infoUniversity").remove()
+}
+function toggleOpenMap(){
+  $("#open_maps").slideToggle()
 }
