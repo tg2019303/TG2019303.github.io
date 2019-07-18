@@ -2,18 +2,17 @@ function showInfo(data, hilite=-1){
   clearInfoDiv();
   var sContent = '<div class="infoUniversity">'
   if (hilite == -2){
-    sContent += '<b>' + data.University + '</b>'
+    sContent += '<b>' + data.University + '</b><b'
   }else{
     sContent += data.University
   };
-  sContent += '<hr>'
   sContent += '<div id="open_maps" onclick="reminder()">';
-  sContent += '<a class="button" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开 </a>';
+  sContent += '<br><a class="button" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开</a><hr>';
   sContent += '</div>'
   sContent += '<div onclick="clearInfoDiv()"><ul>';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
-    var studentHTML = '<li class="info_li">' + studentInfo[0];
+    var studentHTML = '<br><li class="info_li">' + studentInfo[0];
     if (studentInfo.length > 1){
       var attr = [ '专业：','电话：']
       studentHTML += '<ul>'
