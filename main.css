@@ -41,22 +41,15 @@ body, html,#allmap {
   padding: 5px;
   overflow-y: scroll;
 }
-#open_map_trigger{
+#open_maps{
   position: absolute;
   right: 10px;
   top: 5px;
-}
-#open_maps{
-  display: none;
-  text-align: right;
 }
 #open_maps a{
   color: white;
   text-decoration: none;
   font-size: 16px
-}
-#open_maps p{
-  font-size:12px;
 }
 #panel{
 	position: fixed;
