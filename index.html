@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8">
     <title>桐高2019届303班蹭饭图</title>
-    <script type="text/JavaScript" src="https://api.map.baidu.com/api?v=2.0&ak=Ra7pfVaOAGRU0zCsACiQAduq6wLOHIH0"></script>
+    <script type="text/JavaScript" src="https://api.map.baidu.com/api?v=2.0&ak=MBGMU4ffOvlXQ7tD3Me88nyxVAhxK5Hs"></script>
     <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
     <!-- To speed up aes load time -->
     <script type="text/javascript" src="aes.js"></script>
@@ -29,13 +30,6 @@
       <input id="search_input" placeholder="人/大学/专业" onKeyDown="entersearch(event)" disabled="True"/>
       <button id="search_button" onClick="search()" disabled="True">搜索</button>
       <button id="add_data" disabled="True" onClick="location.href='https://www.wjx.cn/jq/42972034.aspx'">添加信息申请</button>
-    </div>
-  <div class="data_edit" id="edit" hidden="True">
-  	<div class="panel-body" id="panel" >
-		<input id="idCode" placeholder="请输入身份码" hidden="True" />
-	</div>
-  	<br/>
-    <button id="id_button" onClick="showEdit()">编辑个人信息</button>
     </div>
   </body>
 </html>
