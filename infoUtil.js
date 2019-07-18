@@ -7,7 +7,7 @@ function showInfo(data, hilite=-1){
     sContent += data.University
   };
   sContent += '<div id="open_maps" onclick="reminder()">';
-  sContent += '<br><a class="button" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开</a>';
+  sContent += `<br><a class="button" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开</a>`;
   sContent += '</div>'
   sContent += '<div onclick="clearInfoDiv()"><ul><br>';
   data.Students.forEach(function(student, index){
