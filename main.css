@@ -29,10 +29,10 @@ body, html,#allmap {
   background-color: #000099;
   color: #ddd;
   text-shadow: 1px 1px 3px #000;
-  font-size: 1.2em;
+  font-size: 1em;
   opacity: 0.5;
   position: absolute;
-  width: 80%;
+  width: 70%;
   max-width: 400px;
   height: 30%;
   top: 10%;
@@ -41,8 +41,14 @@ body, html,#allmap {
   padding: 5px;
   overflow-y: scroll;
 }
+#open_map_trigger{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
 #open_maps{
   display: none;
+  text-align: right;
 }
 #open_maps a{
   color: white;
