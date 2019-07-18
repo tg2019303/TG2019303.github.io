@@ -8,7 +8,7 @@ function showInfo(data, hilite=-1){
   };
   sContent += '<hr>'
   sContent += '<div id="open_maps">';
-  sContent += `<a class="button" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开 </a>`;
+  sContent += `<a class="button" target="blank" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开 </a>`;
   sContent += '</div>'
   sContent += '<div onclick="clearInfoDiv()"><ul>';
   data.Students.forEach(function(student, index){
