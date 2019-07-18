@@ -13,11 +13,33 @@ function initMap() {
   aerialView();
   //新建标注
   universities.forEach(setMarker);
+  selfLocation()
 }
 function aerialView(){
   clearInfoDiv();
   map.centerAndZoom(new BMap.Point(119,35),6);//初始化地图，point为中心点，缩放级别为6
 }
+function selfLocation(){
+	var geolocation = new BMap.Geolocation();
+	geolocation.getCurrentPosition(function(r){
+		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+		  var marker=new BMap.Marker(r.point)
+		  var lab = new BMap.Label('<b>我的位置</b>')
+		  marker.setLabel(lab)
+		  map.addOverlay(marker)
+		  lab.setStyle({
+			//borderColor: "#808080",
+			borderWidth: 0,
+			color: "#ddd",
+			cusor: "pointer",
+			backgroundColor: "#ec2d2d"
+		  })
+		}
+	else {
+		return
+	}        
+});}
+
 function setMarker(data, index){
   var point = new BMap.Point(data.Lng, data.Lat);
   var mk = new BMap.Marker(point);

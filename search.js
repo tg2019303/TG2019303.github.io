@@ -38,7 +38,6 @@ function getAll(query){
       results.push({item: data, hilite: -2})
     }
   };
-  alert(results)
   return results
 }
 //简称必须是全称中按顺序取的字
