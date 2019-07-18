@@ -1,9 +1,10 @@
 function search(){
   if ($("#search_button").text() == "搜索"){
-    $("#search_button").text("下个");
     current_id = 0;
     query = $("#search_input").val();
     results = getAll(query);
+	if(results==""||query==""){return}
+	$("#search_button").text("下个");
     console.log(results);
   }
   current_id += 1;
@@ -37,6 +38,7 @@ function getAll(query){
       results.push({item: data, hilite: -2})
     }
   };
+  alert(results)
   return results
 }
 //简称必须是全称中按顺序取的字
