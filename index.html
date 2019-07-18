@@ -1,28 +1,30 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
     <title>桐高2019届303班蹭饭图</title>
     <script type="text/JavaScript" src="https://api.map.baidu.com/api?v=2.0&ak=Ra7pfVaOAGRU0zCsACiQAduq6wLOHIH0"></script>
     <script type="text/JavaScript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <link rel="stylesheet" href="main.css" type="text/css" />
+  </head>
+  <body>
     <div id="allmap"></div>
-    <link rel=stylesheet href="main.css" type="text/css"></link>
     <script type="text/javascript" src="mapUtil.js"> </script>
     <script type="text/javascript" src="infoUtil.js"> </script>
     <script type="text/javascript" src="search.js"> </script>
     <script type="text/javascript" src="dataEncrypted.js"></script>
     <script type="text/javascript" src="decoder.js"></script>
-  </head>
-  <body>
     <div id="key_input">
-      <input id="key" type="password" placeholder="我们的密钥 | 回车确认"  autofocus onkeydown="enterdecode(event)"/>
+      <input id="key" type="password" placeholder="我们的密钥 | 回车确认"  autofocus onKeyDown="enterdecode(event)"/>
       <br/>
       <a href="guest.html">访客入口</a>
       </div>
     <div class="search_box">
-      <button onclick="aerialView()">鸟瞰</button>
-      <input id="search_input" placeholder="人/大学/专业" onkeydown="entersearch(event)"/>
-      <button id="search_button" onclick="search()">搜索</button>
+      <button onClick="aerialView()">鸟瞰</button>
+      <input id="search_input" placeholder="人/大学/专业" onKeyDown="entersearch(event)" disabled="True"/>
+      <button id="search_button" onClick="search()" disabled="True">搜索</button>
     </div>
   </body>
 </html>
