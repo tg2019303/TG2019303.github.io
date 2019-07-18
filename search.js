@@ -1,9 +1,10 @@
 function search(){
   if ($("#search_button").text() == "搜索"){
-    $("#search_button").text("下个");
     current_id = 0;
     query = $("#search_input").val();
     results = getAll(query);
+	if(results==""||query==""){return}
+	$("#search_button").text("下个");
     console.log(results);
   }
   current_id += 1;
