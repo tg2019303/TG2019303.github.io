@@ -16,7 +16,7 @@ function showInfo(data, hilite=-1){
   sContent += '<ul onclick="clearInfoDiv()">';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
-    var studentHTML = '<li calss="info_li">' + studentInfo[0];
+    var studentHTML = '<li class="info_li">' + studentInfo[0];
     if (studentInfo.length > 1){
       var attr = [ '专业：','电话：']
       studentHTML += '<ul>'

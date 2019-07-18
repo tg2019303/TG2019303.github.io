@@ -11,6 +11,7 @@ function initMap() {
   var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
   map.addControl(ctrl_sca);
   aerialView();
+  map.enableScrollWheelZoom(); 
   //新建标注
   universities.forEach(setMarker);
   selfLocation()

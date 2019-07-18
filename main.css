@@ -11,6 +11,12 @@ body, html,#allmap {
   top: 10px;
   text-align: left;
 }
+#id_button{
+	position: fixed;
+	bottom: 10px;
+	right: 30px;
+	top:auto
+}
 #key_input{
   position: absolute;
   top: 80px;
@@ -45,4 +51,9 @@ body, html,#allmap {
 }
 #open_maps p{
   font-size:12px;
+}
+#panel{
+	position: fixed;
+	bottom: 50px;
+	right: 30px;
 }
