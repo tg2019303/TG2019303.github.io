@@ -31,7 +31,7 @@ body, html,#allmap {
 .infoUniversity{
   border-radius: 21px;
   box-shadow: 5px 5px 5px #888888;
-  color: #ddd;
+  color: #fff;
   text-shadow: 1px 1px 3px #000;
   font-size: 1em;
   position: absolute;
@@ -64,13 +64,13 @@ body, html,#allmap {
   height: 16%;
   padding-top: 3%;
   padding-bottom: 0%;
-  background-color: #000099;
+  background-color: #fe8c0f;
   opacity: 0.8;
 }
 #student_ul{
   width: 100%;
   height: 84%;
   overflow-y: scroll;
-  background-color:#000088;
+  background-color: #fe8c0f;
   opacity: 0.6;
 }
