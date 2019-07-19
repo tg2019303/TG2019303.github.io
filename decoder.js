@@ -7,9 +7,9 @@ function enterdecode(e){
       f=decodeURIComponent(escape(window.atob(e)))
       eval(f)
       $("#key_input").remove();
-	  $("#search_button").removeAttr("disabled");
-	  $("#search_input").removeAttr("disabled");
-	  $("#add_data").removeAttr("disabled");
+	  $("#search_button").removeAttr("hidden");
+	  $("#search_input").removeAttr("hidden");
+	  $("#add_data").removeAttr("hidden");
 	  initMap()
     }catch(err){
       $('<p style="color:red;text-align:center">密钥不匹配</p>').appendTo("#key_input")
