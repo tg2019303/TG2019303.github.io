@@ -25,6 +25,10 @@ body, html,#allmap {
   transform: translate(-50%, 0%);
   text-align: center;
 }
+#key{
+  font-size: 19px;
+  width: 200px;
+}
 .infoUniversity{
   border-radius: 21px;
   background-color: #000099;
