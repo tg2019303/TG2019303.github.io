@@ -6,10 +6,15 @@ function showInfo(data, hilite=-1){
   }else{
     sContent += data.University
   };
-  sContent += '<div id="open_maps" onclick="reminder()">';
-  sContent += `<br><a class="button" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开</a>`;
-  sContent += '</div>'
-  sContent += '<div onclick="clearInfoDiv()"><ul><br>';
+  var UA = window.navigator.userAgent.toLocaleLowerCase()
+  sContent += '<hr><div id="open_maps" onclick="reminder()">';
+  if(/iphone|ipad|ipod/.test(UA)){//ios
+    sContent += `<a href=baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=ios.tg2019303.ioPage>App打开</a></div>`;
+  }else{
+    sContent += `<a href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.tg2019303.ioPage>App打开</a></div>`;
+  }
+  sContent += '<div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或使用浏览器打开此页面</p></div>'
+  sContent += '<div onclick="clearInfoDiv()"><ul>';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
     var studentHTML = '<li class="info_li">' + studentInfo[0];
@@ -43,5 +48,6 @@ function toggleOpenMap(){
   $("#open_maps").slideToggle()
 }
 function reminder(){
-  setTimeout('$(".button").text("没反应？请下载百度地图APP")',1000)
+  setTimeout('$("#bdreminder").slideToggle()',1000)
+  setTimeout('$("#bdreminder").slideToggle()',4000)
 }
