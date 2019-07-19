@@ -2,22 +2,15 @@ var slideLock = false;
 function showInfo(data, hilite=-1){
   clearInfoDiv();
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
-  var UA = window.navigator.userAgent.toLocaleLowerCase()
-  if(/iphone|ipad|ipod/.test(UA)){//ios
-    sContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage"`;
-  }else{
-    sContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage"`;
-    sContent += ' onClick="reminder()">'
-  }
   if (hilite == -2){
     sContent += '<b>&emsp;' + data.University + '</b>'
   }else{
     //Browser compatibility
     sContent += '<span>&emsp;' + data.University + '</span>'
   };
-  sContent += '<span style="font-size:0.7em">App打开</span></a>'
-  sContent += '</div><div id="open_maps"><a id="goto" href="javascript:showWay('+data.Lng+","+data.Lat+');clearInfoDiv()">&nbsp&nbsp去蹭饭</a><br>';
-  sContent += '</div><div id="student_ul" onclick="clearInfoDiv()"><div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或试试去蹭饭</p></div><ul>';
+  sContent += '<span id="open_map_trigger" onclick="toggleOpenMap()"><b>· · ·</b></span>'
+  sContent += '</div><div id="student_ul" onclick="clearInfoDiv()">'
+  sContent += getMoreContent(data) + '<ul>';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
     var studentHTML = '<li class="info_li">' + studentInfo[0];
@@ -50,9 +43,18 @@ function clearInfoDiv(){
 function toggleOpenMap(){
   $("#open_maps").slideToggle()
 }
-function reminder(){
-  if (slideLock){return}
-  slideLock = true;
-  setTimeout('$("#bdreminder").slideToggle()',1000)
-  setTimeout('$("#bdreminder").slideToggle();slideLock=false',4000)
+function getMoreContent(data){
+  var moreContent = '<div id="open_maps">';
+  var UA = window.navigator.userAgent.toLocaleLowerCase()
+  if(/iphone|ipad|ipod/.test(UA)){//ios
+    moreContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">`;
+  }else{
+    moreContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage">`;
+  }
+  moreContent += '百度地图App</a><br/>'
+  my = getmylocation()
+  moreContent += `<a href="http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo" target="blank" onClick="reminder()">百度地图网页版</a><br/>`
+  moreContent += `<a href="javascript:showWay(${data.Lng},${data.Lat});clearInfoDiv()">直接去蹭饭</a>`;
+  moreContent += '</div>'
+  return moreContent;
 }

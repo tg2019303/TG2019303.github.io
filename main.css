@@ -43,12 +43,16 @@ body, html,#allmap {
   transform: translate(-50%, 0%);
   overflow: hidden;
 }
-#open_maps{
+#open_map_trigger{
   position: absolute;
   right: 20px;
-  top: 5px;
 }
-#open_maps a, #title_bar a{
+#open_maps{
+  display: none;
+  text-align: right;
+  padding-right: 10px;
+}
+#open_maps a{
   color: white;
   text-decoration: none;
   font-size: 16px
