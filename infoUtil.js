@@ -8,13 +8,13 @@ function showInfo(data, hilite=-1){
     sContent += '&emsp;' + data.University
   };
   var UA = window.navigator.userAgent.toLocaleLowerCase()
-  sContent += '</div><div id="open_maps" onclick="reminder()">';
+  sContent += '</div><div id="open_maps"><a id="goto" href="javascript:showWay('+data.Lng+","+data.Lat+');clearInfoDiv()">&nbsp&nbsp去蹭饭</a><br>';
   if(/iphone|ipad|ipod/.test(UA)){//ios
-    sContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">App打开</a>`;
+    sContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage"`;
   }else{
-    sContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage">App打开</a>`;
+    sContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage"`;
   }
-  sContent += '<br><a id="goto" href="javascript:showWay('+data.Lng+","+data.Lat+');clearInfoDiv()">去蹭饭</a></div><div id="student_ul" onclick="clearInfoDiv()"><div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或试试其它浏览器打开此页面</p></div><ul>';
+  sContent += ' onClick="reminder()">App打开</a></div><div id="student_ul" onclick="clearInfoDiv()"><div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或试试去蹭饭</p></div><ul>';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
     var studentHTML = '<li class="info_li">' + studentInfo[0];
