@@ -2,19 +2,22 @@ var slideLock = false;
 function showInfo(data, hilite=-1){
   clearInfoDiv();
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
-  if (hilite == -2){
-    sContent += '<b>&emsp;' + data.University + '</b>'
-  }else{
-    sContent += '&emsp;' + data.University
-  };
   var UA = window.navigator.userAgent.toLocaleLowerCase()
-  sContent += '</div><div id="open_maps"><a id="goto" href="javascript:showWay('+data.Lng+","+data.Lat+');clearInfoDiv()">&nbsp&nbsp去蹭饭</a><br>';
   if(/iphone|ipad|ipod/.test(UA)){//ios
     sContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage"`;
   }else{
     sContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage"`;
+    sContent += ' onClick="reminder()">'
   }
-  sContent += ' onClick="reminder()">App打开</a></div><div id="student_ul" onclick="clearInfoDiv()"><div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或试试去蹭饭</p></div><ul>';
+  if (hilite == -2){
+    sContent += '<b>&emsp;' + data.University + '</b>'
+  }else{
+    //Browser compatibility
+    sContent += '<span>&emsp;' + data.University + '</span>'
+  };
+  sContent += '<span style="font-size:0.7em">App打开</span></a>'
+  sContent += '</div><div id="open_maps"><a id="goto" href="javascript:showWay('+data.Lng+","+data.Lat+');clearInfoDiv()">&nbsp&nbsp去蹭饭</a><br>';
+  sContent += '</div><div id="student_ul" onclick="clearInfoDiv()"><div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或试试去蹭饭</p></div><ul>';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
     var studentHTML = '<li class="info_li">' + studentInfo[0];
