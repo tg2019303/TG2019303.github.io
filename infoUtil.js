@@ -1,3 +1,4 @@
+var slideLock = false;
 function showInfo(data, hilite=-1){
   clearInfoDiv();
   var sContent = '<div class="infoUniversity">'
@@ -48,6 +49,8 @@ function toggleOpenMap(){
   $("#open_maps").slideToggle()
 }
 function reminder(){
+  if (slideLock){return}
+  slideLock = true;
   setTimeout('$("#bdreminder").slideToggle()',1000)
-  setTimeout('$("#bdreminder").slideToggle()',4000)
+  setTimeout('$("#bdreminder").slideToggle();slideLock=false',4000)
 }
