@@ -15,7 +15,6 @@ function initMap() {
   //新建标注
   universities.forEach(setMarker);
   selfLocation()
-  showWay()
 }
 function aerialView(){
   clearInfoDiv();
@@ -71,9 +70,7 @@ function setMarker(data, index){
   })();
 }
 
-function showWay(){
-	var start = new BMap.Point(116.310791, 40.003419);
-	var end = new BMap.Point(121.490546, 31.233585);
+function showWay(start,end){
 	var transit = new BMap.TransitRoute(map, { 
     renderOptions: { 
         map: map, 
@@ -87,7 +84,7 @@ function showWay(){
 
     // 配置跨城公交的交通方式策略为飞机优先
 
-    transitTypePolicy: BMAP_TRANSIT_TYPE_POLICY_AIRPLANE
+    //transitTypePolicy: BMAP_TRANSIT_TYPE_POLICY_AIRPLANE
 
 });
 
