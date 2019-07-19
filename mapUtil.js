@@ -96,3 +96,6 @@ function showWay(lng,lat){
 
 transit.search(start, end);
 }
+function getmylocation(){
+	return current_location
+}
