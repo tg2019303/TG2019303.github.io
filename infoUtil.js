@@ -45,6 +45,7 @@ function toggleOpenMap(){
 }
 function getMoreContent(data){
   var moreContent = '<div id="open_maps">';
+  moreContent += `<a href="javascript:showWay(${data.Lng},${data.Lat});clearInfoDiv()">直接去蹭饭</a><br/>`;
   var UA = window.navigator.userAgent.toLocaleLowerCase()
   if(/iphone|ipad|ipod/.test(UA)){//ios
     moreContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">`;
@@ -53,8 +54,7 @@ function getMoreContent(data){
   }
   moreContent += '百度地图App</a><br/>'
   my = getmylocation()
-  moreContent += `<a href="http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo" target="blank" onClick="reminder()">百度地图网页版</a><br/>`
-  moreContent += `<a href="javascript:showWay(${data.Lng},${data.Lat});clearInfoDiv()">直接去蹭饭</a>`;
+  moreContent += `<a href="http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo" target="blank" onClick="reminder()">百度地图网页版</a>`
   moreContent += '</div>'
   return moreContent;
 }
