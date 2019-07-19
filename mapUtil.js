@@ -69,3 +69,25 @@ function setMarker(data, index){
     });
   })();
 }
+
+function showWay(start,end){
+	var transit = new BMap.TransitRoute(map, { 
+    renderOptions: { 
+        map: map, 
+        autoViewport: true
+
+    },
+
+    // 配置跨城公交的换成策略为优先出发早
+
+    intercityPolicy: BMAP_INTERCITY_POLICY_EARLY_START,
+
+    // 配置跨城公交的交通方式策略为飞机优先
+
+    //transitTypePolicy: BMAP_TRANSIT_TYPE_POLICY_AIRPLANE
+
+});
+
+
+transit.search(start, end);
+}
