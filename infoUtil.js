@@ -40,7 +40,10 @@ function showInfo(data, hilite=-1){
   $("body").add(sContent);
 }
 function clearInfoDiv(){
-  map.centerAndZoom(new BMap.Point(119,35),6);
+  zoom=map.getZoom()
+  if (zoom>6){
+  	map.centerAndZoom(new BMap.Point(119,35),6);
+  }
   $(".infoUniversity").remove()
 }
 function toggleOpenMap(){
