@@ -8,6 +8,7 @@ body, html,#allmap {
 
 .search_box{
   position: absolute;
+  left:10px;
   top: 10px;
   text-align: left;
 }
