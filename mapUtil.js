@@ -1,6 +1,7 @@
 var map = new BMap.Map("allmap");//创建地图实例
 var current_id = 0;
-var current_location
+var current_location;
+var index_list
 function initMap() {
   //初始化地图 默认加载北京天安门
   var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_RIGHT,type:BMAP_NAVIGATION_CONTROL_LARGE});
@@ -14,8 +15,11 @@ function initMap() {
   aerialView();
   map.enableScrollWheelZoom(); 
   //新建标注
+  index_list=Array.from({length:universities.length}).map((item,index)=>{
+     return index;
+    });
   universities.forEach(setMarker);
-  setInterval(function(){map.clearOverlays();universities.forEach(setMarker)}, 6000)
+  setInterval(function(){map.clearOverlays();randomOrder();universities.forEach(setMarker)}, 5000)
   selfLocation()
 }
 function aerialView(){
@@ -50,8 +54,8 @@ function setMarker(data, index){
   var mk = new BMap.Marker(point);
   var label = new BMap.Label('<b>'+data.University+'</b>');
   data.Marker = mk;
-  var index = Math.floor((Math.random() * 300) + 20);
-  mk.setZIndex(index)
+  //var index = Math.floor((Math.random() * 300) + 20);
+  mk.setZIndex(index_list[index])
   mk.setLabel(label);
   mk.disableDragging();// 不可拖拽
   map.addOverlay(mk);
@@ -104,3 +108,9 @@ function getmylocation(){
 		current_location=new BMap.Point(120.54572,30.645852)
 	
 }return current_location}
+
+function randomOrder(){
+	
+	index_list.push(index_list.shift())
+	index_list.reverse()//暂时毫无思路，待完善
+}
