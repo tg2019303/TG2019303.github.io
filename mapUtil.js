@@ -97,5 +97,7 @@ function showWay(lng,lat){
 transit.search(start, end);
 }
 function getmylocation(){
-	return current_location
-}
+	try{console.log(current_location.lat)}catch(err){
+		current_location=new BMap.Point(120.54572,30.645852)
+	
+}return current_location}
