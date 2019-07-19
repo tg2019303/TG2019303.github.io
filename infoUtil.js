@@ -1,14 +1,14 @@
 var slideLock = false;
 function showInfo(data, hilite=-1){
   clearInfoDiv();
-  var sContent = '<div class="infoUniversity">'
+  var sContent = '<div class="infoUniversity"><div id="title_bar">'
   if (hilite == -2){
     sContent += '<b>&emsp;' + data.University + '</b>'
   }else{
     sContent += '&emsp;' + data.University
   };
   var UA = window.navigator.userAgent.toLocaleLowerCase()
-  sContent += '<div id="open_maps" onclick="reminder()">';
+  sContent += '</div><div id="open_maps" onclick="reminder()">';
   if(/iphone|ipad|ipod/.test(UA)){//ios
     sContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">App打开</a></div>`;
   }else{
