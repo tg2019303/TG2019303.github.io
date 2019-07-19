@@ -44,7 +44,6 @@ body, html,#allmap {
   left: 50%;
   transform: translate(-50%, 0%);
   padding: 5px;
-  overflow-y: scroll;
 }
 #open_maps{
   position: absolute;
@@ -60,6 +59,11 @@ body, html,#allmap {
   display: none;
   text-align: right;
   font-size:12px;
+}
+#student_ul{
+  display: block;
+  height: 80%;
+  overflow-y: scroll;
 }
 #panel{
 	position: fixed;

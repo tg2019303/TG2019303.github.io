@@ -15,7 +15,7 @@ function showInfo(data, hilite=-1){
     sContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage">App打开</a></div>`;
   }
   sContent += '<div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或试试其它浏览器打开此页面</p></div>'
-  sContent += '<div onclick="clearInfoDiv()"><ul>';
+  sContent += '<div id="student_ul" onclick="clearInfoDiv()"><ul>';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
     var studentHTML = '<li class="info_li">' + studentInfo[0];
