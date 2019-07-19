@@ -31,6 +31,7 @@ body, html,#allmap {
 }
 .infoUniversity{
   border-radius: 21px;
+  box-shadow: 5px 5px 5px #888888;
   color: #ddd;
   text-shadow: 1px 1px 3px #000;
   font-size: 1em;
@@ -56,6 +57,7 @@ body, html,#allmap {
 #bdreminder{
   display: none;
   text-align: right;
+  padding-right: 5px;
   font-size:12px;
 }
 #title_bar{
