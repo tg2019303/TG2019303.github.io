@@ -8,7 +8,7 @@ function showInfo(data, hilite=-1){
     sContent += '&emsp;' + data.University
   };
   var UA = window.navigator.userAgent.toLocaleLowerCase()
-  sContent += '<hr><div id="open_maps" onclick="reminder()">';
+  sContent += '<div id="open_maps" onclick="reminder()">';
   if(/iphone|ipad|ipod/.test(UA)){//ios
     sContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">App打开</a></div>`;
   }else{
@@ -36,7 +36,7 @@ function showInfo(data, hilite=-1){
     }else{
       sContent += studentHTML
     }});
-  sContent += '</ul><p style="font-size: 12px; align: center"><br/>轻触关闭窗口</p></div></div>';
+  sContent += '</ul><p style="font-size: 12px; text-align: center"><br/>轻触关闭窗口</p></div></div>';
   map.setCenter(data.Marker.getPosition());
   sContent = $.parseHTML(sContent);
   $(sContent).appendTo("body")

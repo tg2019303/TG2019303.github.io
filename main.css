@@ -43,7 +43,8 @@ body, html,#allmap {
   top: 10%;
   left: 50%;
   transform: translate(-50%, 0%);
-  padding: 5px;
+  padding-top: 7px;
+  overflow: hidden;
 }
 #open_maps{
   position: absolute;
@@ -62,8 +63,10 @@ body, html,#allmap {
 }
 #student_ul{
   display: block;
-  height: 80%;
+  width: 100%;
+  height: 90%;
   overflow-y: scroll;
+  background-color:red;
 }
 #panel{
 	position: fixed;
