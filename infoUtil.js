@@ -32,7 +32,7 @@ function showInfo(data, hilite=-1){
     }
     studentHTML += '</li>'
     if (index == hilite){
-      sContent += '<b>' + studentHTML + '</b>'
+      sContent += '<b style="color:yellow;">' + studentHTML + '</b>'
     }else{
       sContent += studentHTML
     }});
