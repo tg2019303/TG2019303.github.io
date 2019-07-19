@@ -3,9 +3,9 @@ function showInfo(data, hilite=-1){
   clearInfoDiv();
   var sContent = '<div class="infoUniversity">'
   if (hilite == -2){
-    sContent += '<b>' + data.University + '</b>'
+    sContent += '<b>&emsp;' + data.University + '</b>'
   }else{
-    sContent += data.University
+    sContent += '&emsp;' + data.University
   };
   var UA = window.navigator.userAgent.toLocaleLowerCase()
   sContent += '<hr><div id="open_maps" onclick="reminder()">';
