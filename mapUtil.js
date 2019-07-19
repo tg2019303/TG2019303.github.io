@@ -19,6 +19,7 @@ function initMap() {
 function aerialView(){
   clearInfoDiv();
   map.centerAndZoom(new BMap.Point(119,35),6);//初始化地图，point为中心点，缩放级别为6
+   map.setMapStyleV2({styleId: 'a5fddb25f2312728e44a8dd938e24fd2'});
 }
 function selfLocation(){
 	var geolocation = new BMap.Geolocation();
