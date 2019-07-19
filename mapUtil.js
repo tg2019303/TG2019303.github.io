@@ -15,7 +15,7 @@ function initMap() {
   map.enableScrollWheelZoom(); 
   //新建标注
   universities.forEach(setMarker);
-  setInterval(function(){map.clearOverlays();universities.forEach(setMarker)}, 2500)
+  setInterval(function(){map.clearOverlays();universities.forEach(setMarker)}, 1800)
   selfLocation()
 }
 function aerialView(){
