@@ -42,6 +42,7 @@ function clearInfoDiv(){
 }
 function toggleOpenMap(){
   $("#open_maps").slideToggle()
+  $("#student_ul").scrollTop(0);
 }
 function getMoreContent(data){
   var moreContent = '<div id="open_maps">';
