@@ -53,8 +53,8 @@ function setMarker(data, index){
   mk.disableDragging();// 不可拖拽
   map.addOverlay(mk);
   label.setStyle({
-    //borderColor: "#808080",
-    borderWidth: 0,
+    borderColor: "#808080",
+    borderWidth: 2,
     color: "#ddd",
     cusor: "pointer",
     backgroundColor: "#ec2d2d"
