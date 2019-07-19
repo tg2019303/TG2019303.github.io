@@ -1,8 +1,12 @@
 var slideLock = false;
 function showInfo(data, hilite=-1){
   clearInfoDiv();
-  map.centerAndZoom(new BMap.Point(data.Lat,data.Lng),9);
-  //大部分城市这个缩放比例可以完全显示，但是北京等需要更大，后期数据对特殊省份要进行不同缩放
+  if(data.University=="中国政法大学"){
+	map.centerAndZoom(new BMap.Point(data.Lat,data.Lng),12);
+  }else{
+  	map.centerAndZoom(new BMap.Point(data.Lat,data.Lng),9);
+  }
+  //这里用大学名作判断条件，仅作测试，后期将改为城市判断
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
   if (hilite == -2){
     sContent += '<b>&emsp;' + data.University + '</b>'
