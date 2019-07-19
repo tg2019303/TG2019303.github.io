@@ -69,3 +69,7 @@ function setMarker(data, index){
     });
   })();
 }
+
+function showWay(){
+	
+}
