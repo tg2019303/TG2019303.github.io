@@ -1,5 +1,6 @@
 var map = new BMap.Map("allmap");//创建地图实例
 var current_id = 0;
+var current_location
 function initMap() {
   //初始化地图 默认加载北京天安门
   var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_RIGHT,type:BMAP_NAVIGATION_CONTROL_LARGE});
@@ -26,6 +27,7 @@ function selfLocation(){
 	geolocation.getCurrentPosition(function(r){
 		if(this.getStatus() == BMAP_STATUS_SUCCESS){
 		  var marker=new BMap.Marker(r.point)
+		  current_location=new BMap.Point(r.point.lng,r.point.lat)
 		  var lab = new BMap.Label('<b>我的位置</b>')
 		  marker.setLabel(lab)
 		  map.addOverlay(marker)
@@ -38,7 +40,7 @@ function selfLocation(){
 		  })
 		}
 	else {
-		return
+		current_location=new BMap.Point(120.54572,30.645852)
 	}        
 });}
 
@@ -71,7 +73,9 @@ function setMarker(data, index){
   })();
 }
 
-function showWay(start,end){
+function showWay(lng,lat){
+	var start = current_location
+    var end = new BMap.Point(lng,lat)
 	var transit = new BMap.TransitRoute(map, { 
     renderOptions: { 
         map: map, 
@@ -81,7 +85,7 @@ function showWay(start,end){
 
     // 配置跨城公交的换成策略为优先出发早
 
-    intercityPolicy: BMAP_INTERCITY_POLICY_EARLY_START,
+    intercityPolicy: BMAP_INTERCITY_POLICY_EARLY_START
 
     // 配置跨城公交的交通方式策略为飞机优先
 
