@@ -15,7 +15,7 @@ function initMap() {
   map.enableScrollWheelZoom(); 
   //新建标注
   universities.forEach(setMarker);
-  //setInterval(function(){map.clearOverlays();universities.forEach(setMarker)}, 1800)
+  setInterval(function(){map.clearOverlays();universities.forEach(setMarker)}, 6000)
   selfLocation()
 }
 function aerialView(){
@@ -50,8 +50,8 @@ function setMarker(data, index){
   var mk = new BMap.Marker(point);
   var label = new BMap.Label('<b>'+data.University+'</b>');
   data.Marker = mk;
-  //var index = Math.floor((Math.random() * 300) + 20);
-  //mk.setZIndex(index)
+  var index = Math.floor((Math.random() * 300) + 20);
+  mk.setZIndex(index)
   mk.setLabel(label);
   mk.disableDragging();// 不可拖拽
   map.addOverlay(mk);
