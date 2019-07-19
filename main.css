@@ -51,6 +51,11 @@ body, html,#allmap {
   text-decoration: none;
   font-size: 16px
 }
+#bdreminder{
+  display: none;
+  text-align: right;
+  font-size:12px;
+}
 #panel{
 	position: fixed;
 	bottom: 50px;
