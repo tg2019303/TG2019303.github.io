@@ -17,7 +17,7 @@ function showInfo(data, hilite=-1){
   }else{
     sContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage"`;
   }*/
-  sContent += ' onClick="reminder()">地图详情</a></div><div id="student_ul" onclick="clearInfoDiv()"><div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或试试去蹭饭</p></div><ul>';
+  sContent += ' target="blank" onClick="reminder()">地图详情</a></div><div id="student_ul" onclick="clearInfoDiv()"><div id="bdreminder"><p>没反应？或试试去蹭饭</p></div><ul>';
   data.Students.forEach(function(student, index){
     var studentInfo = student.split("@");
     var studentHTML = '<li class="info_li">' + studentInfo[0];
