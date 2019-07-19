@@ -6,8 +6,13 @@ function showInfo(data, hilite=-1){
   }else{
     sContent += data.University
   };
+  var UA = window.navigator.userAgent.toLocaleLowerCase()
   sContent += '<hr><div id="open_maps" onclick="reminder()">';
-  sContent += `<a class="button" href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.baidu.openAPIdemo>App打开</a></div>`;
+  if(/iphone|ipad|ipod/.test(UA)){//ios
+    sContent += `<a href=baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=ios.tg2019303.ioPage>App打开</a></div>`;
+  }else{
+    sContent += `<a href=bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&src=andr.tg2019303.ioPage>App打开</a></div>`;
+  }
   sContent += '<div id="bdreminder"><p>没反应？请下载百度地图APP<br/>或使用浏览器打开此页面</p></div>'
   sContent += '<div onclick="clearInfoDiv()"><ul>';
   data.Students.forEach(function(student, index){
