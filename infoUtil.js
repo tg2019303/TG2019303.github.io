@@ -2,7 +2,7 @@ function showInfo(data, hilite=-1){
   clearInfoDiv();
   var sContent = '<div class="infoUniversity">'
   if (hilite == -2){
-    sContent += '<b>' + data.University + '</b><b'
+    sContent += '<b>' + data.University + '</b>'
   }else{
     sContent += data.University
   };
