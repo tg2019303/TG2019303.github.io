@@ -7,6 +7,7 @@ function enterdecode(e){
       f=decodeURIComponent(escape(window.atob(e)))
       eval(f)
       $("#key_input").remove();
+	  $("#ctext").removeAttr("hidden")
       $(".search_box").slideToggle()
       $("#welcome_title").remove();
       $("#copyright").remove();
