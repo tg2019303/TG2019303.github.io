@@ -11,12 +11,6 @@ body, html,#allmap {
   top: 10px;
   text-align: left;
 }
-#id_button{
-	position: fixed;
-	bottom: 10px;
-	right: 30px;
-	top:auto
-}
 #key_input{
   position: absolute;
   top: 80px;
@@ -80,4 +74,14 @@ body, html,#allmap {
 }
 #student_hilite{
   color: yellow;
+}
+#ctext{
+	position: absolute;
+	bottom: 10px;
+	left:50%;
+	color: #999;
+	text-align:center;
+	margin-left:-250px;
+	width:500px;
+	
 }
