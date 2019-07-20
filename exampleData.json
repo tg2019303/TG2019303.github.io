@@ -14,7 +14,7 @@ universities = [
         "Students": [
             "**钰@一流专业@136****6701"
         ],
-        "University": "中国人民大学大学"
+        "University": "中国人民大学"
     },
     {
         "Lat": 39.972116943101696,
@@ -55,7 +55,7 @@ universities = [
         "Students": [
             "**颖@一流专业@138****3127"
         ],
-        "University": "华南理工大学 大学城校区"
+        "University": "华南理工大学大学城校区"
     },
     {
         "Lat": 28.666813479575065,
