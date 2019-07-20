@@ -5,6 +5,31 @@ body, html,#allmap {
   margin:0;
   font-family:"微软雅黑";
 }
+#welcome_title{
+  position: absolute;
+  margin: 0;
+  top: 5px;
+  width: 100%;
+  text-align: center;
+}
+#welcome_title span{
+  font-size: 17px;
+  color: black;
+}
+#welcome_title b{
+  font-size: 35px;
+  color: #ff520f;
+  text-shadow: 1px 1px 5px #666;
+}
+#copyright{
+  position: absolute;
+  top: 230px;
+  width: 100%;
+  text-align: center;
+}
+#copyright a{
+  color: black;
+}
 .search_box{
   position: absolute;
   left:10px;
@@ -13,14 +38,19 @@ body, html,#allmap {
 }
 #key_input{
   position: absolute;
-  top: 80px;
+  top: 100px;
   left: 50%;
   transform: translate(-50%, 0%);
   text-align: center;
+  border-radius: 16px;
+  background-color: #f7c994;
+  box-shadow: 5px 5px 5px #888888;
+  padding: 30px;
 }
 #key{
-  font-size: 19px;
+  font-size: 18px;
   width: 200px;
+  margin-bottom: 13px
 }
 .infoUniversity{
   border-radius: 21px;
