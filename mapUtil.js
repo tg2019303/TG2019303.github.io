@@ -19,8 +19,9 @@ function initMap() {
      return index;
     });
   universities.forEach(setMarker);
-  setInterval(function(){map.clearOverlays();randomOrder();universities.forEach(setMarker)}, 5000)
+  setInterval(function(){map.clearOverlays();randomOrder();universities.forEach(setMarker);showLocation()}, 1500)
   selfLocation()
+  showLocation()
 }
 function aerialView(){
   clearInfoDiv();
@@ -31,23 +32,26 @@ function selfLocation(){
 	var geolocation = new BMap.Geolocation();
 	geolocation.getCurrentPosition(function(r){
 		if(this.getStatus() == BMAP_STATUS_SUCCESS){
-		  var marker=new BMap.Marker(r.point)
 		  current_location=new BMap.Point(r.point.lng,r.point.lat)
-		  var lab = new BMap.Label('<b>我的位置</b>')
-		  marker.setLabel(lab)
-		  map.addOverlay(marker)
-		  lab.setStyle({
-			//borderColor: "#808080",
-			borderWidth: 0,
-			color: "#ddd",
-			cusor: "pointer",
-			backgroundColor: "#ec2d2d"
-		  })
 		}
 	else {
 		current_location=new BMap.Point(120.54572,30.645852)
 	}        
 });}
+
+function showLocation(){
+	var marker=new BMap.Marker(current_location)
+	var lab = new BMap.Label('<b>我的位置</b>')
+		  marker.setLabel(lab)
+		  map.addOverlay(marker)
+		  lab.setStyle({
+			borderColor: "#808080",
+			borderWidth: 2,
+			color: "#ddd",
+			cusor: "pointer",
+			backgroundColor: "#ec2d2d"
+		  })
+}
 
 function setMarker(data, index){
   var point = new BMap.Point(data.Lng, data.Lat);
@@ -111,6 +115,11 @@ function getmylocation(){
 
 function randomOrder(){
 	
-	index_list.push(index_list.shift())
-	index_list.reverse()//暂时毫无思路，待完善
+	 var len = index_list.length
+    for(var i = index_list.length - 1; i >= 0; i--) {
+        var randomIndex = Math.floor(Math.random() * (i + 1));
+        var itemIndex = index_list[randomIndex];
+        index_list[randomIndex] = index_list[i];
+        index_list[i] = itemIndex;
+    }
 }
