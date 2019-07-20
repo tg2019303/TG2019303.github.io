@@ -107,13 +107,10 @@ body, html,#allmap {
 }
 #ctext{
 	position: absolute;
-	bottom: 10px;
-	left:50%;
+	bottom: 0px;
 	color: #999;
 	text-align:center;
-	margin-left:-250px;
-	width:500px;
-	
+	width: 100%;
 }
 #ctext a{
   color: #999;
