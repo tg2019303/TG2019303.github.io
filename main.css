@@ -57,7 +57,7 @@ body, html,#allmap {
   box-shadow: 5px 5px 5px #888888;
   color: #fff;
   text-shadow: 1px 1px 3px #000;
-  font-size: 1em;
+  font-size: 16px;
   position: absolute;
   width: 70%;
   max-width: 400px;
@@ -96,11 +96,18 @@ body, html,#allmap {
   opacity: 0.8;
 }
 #student_ul{
+  font-size: 15px;
   width: 100%;
   height: 84%;
   overflow-y: scroll;
-  background-color: #fe8c0f;
-  opacity: 0.6;
+  background-color: #f7b56a;
+  opacity: 0.9;
+}
+#student_ul ul{
+  padding-left: 30px
+}
+#student_ul ul ul{
+  padding-left: 25px;
 }
 #student_hilite{
   color: yellow;
