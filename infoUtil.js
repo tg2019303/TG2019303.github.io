@@ -1,6 +1,7 @@
 var slideLock = false;
 function showInfo(data, hilite=-1){
   clearInfoDiv();
+  var doScroll = false;
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
   if (hilite == -2){
     sContent += '<b>&emsp;' + data.University + '</b>'
@@ -27,7 +28,8 @@ function showInfo(data, hilite=-1){
     }
     studentHTML += '</li>'
     if (index == hilite){
-      sContent += '<b style="color:yellow;">' + studentHTML + '</b>'
+      sContent += '<b id="student_hilite">' + studentHTML + '</b>'
+      doScroll = true;
     }else{
       sContent += studentHTML
     }});
@@ -36,6 +38,11 @@ function showInfo(data, hilite=-1){
   sContent = $.parseHTML(sContent);
   $(sContent).appendTo("body")
   $("body").add(sContent);
+  if (doScroll){
+    var container = $("#student_ul");
+    var target = $("#student_hilite");
+    container.scrollTop(target.offset().top-container.offset().top-30);
+  }
 }
 function clearInfoDiv(){
   $(".infoUniversity").remove()
