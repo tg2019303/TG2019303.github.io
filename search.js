@@ -47,7 +47,8 @@ function chrsInStr(chrs, str){
     chr = chrs.charAt(i);
     while (str.charAt(j) != chr){
       j++;
-      if (j == str.length){
+      console.log(i, j)
+      if (j >= str.length){
         return false
       }
     }
