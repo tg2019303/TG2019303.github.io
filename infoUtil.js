@@ -34,7 +34,7 @@ function showInfo(data, hilite=-1){
       sContent += studentHTML
     }});
   sContent += '</ul><p style="font-size: 12px; text-align: center"><br/>轻触关闭窗口</p><br></div></div>';
-  map.centerAndZoom(data.Marker.getPosition(), data.Zoom);
+  map.centerAndZoom(data.Marker.getPosition(), Math.max(data.Zoom, map.getZoom()));
   sContent = $.parseHTML(sContent);
   $(sContent).appendTo("body")
   $("body").add(sContent);
