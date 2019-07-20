@@ -4,7 +4,7 @@ function showInfo(data, hilite=-1){
   var doScroll = false;
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
   if (hilite == -2){
-    sContent += '<b>&emsp;' + data.University + '</b>'
+    sContent += '<b><span style="color:yellow">&emsp;' + data.University + '</span></b>'
   }else{
     //Browser compatibility
     sContent += '<span>&emsp;' + data.University + '</span>'
