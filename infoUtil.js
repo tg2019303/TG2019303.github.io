@@ -1,12 +1,7 @@
 var slideLock = false;
 function showInfo(data, hilite=-1){
   clearInfoDiv();
-  if(data.University=="中国政法大学"){
-	map.centerAndZoom(new BMap.Point(data.Lat,data.Lng),12);
-  }else{
-  	map.centerAndZoom(new BMap.Point(data.Lat,data.Lng),9);
-  }
-  //这里用大学名作判断条件，仅作测试，后期将改为城市判断
+  var doScroll = false;
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
   if (hilite == -2){
     sContent += '<b>&emsp;' + data.University + '</b>'
@@ -33,21 +28,23 @@ function showInfo(data, hilite=-1){
     }
     studentHTML += '</li>'
     if (index == hilite){
-      sContent += '<b style="color:yellow;">' + studentHTML + '</b>'
+      sContent += '<b id="student_hilite">' + studentHTML + '</b>'
+      doScroll = true;
     }else{
       sContent += studentHTML
     }});
   sContent += '</ul><p style="font-size: 12px; text-align: center"><br/>轻触关闭窗口</p><br></div></div>';
-  map.setCenter(data.Marker.getPosition());
+  map.centerAndZoom(data.Marker.getPosition(), data.Zoom);
   sContent = $.parseHTML(sContent);
   $(sContent).appendTo("body")
   $("body").add(sContent);
+  if (doScroll){
+    var container = $("#student_ul");
+    var target = $("#student_hilite");
+    container.scrollTop(target.offset().top-container.offset().top-30);
+  }
 }
 function clearInfoDiv(){
-  zoom=map.getZoom()
-  if (zoom>6){
-  	map.centerAndZoom(new BMap.Point(119,35),6);
-  }
   $(".infoUniversity").remove()
 }
 function toggleOpenMap(){
