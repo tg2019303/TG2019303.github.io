@@ -6,12 +6,12 @@ function enterdecode(e){
       e=CryptoJS.enc.Latin1.stringify(d)
       f=decodeURIComponent(escape(window.atob(e)))
       eval(f)
+	  loadJScript();
       $("#key_input").remove();
 	  $("#ctext").removeAttr("hidden")
       $(".search_box").slideToggle()
       $("#welcome_title").remove();
       $("#copyright").remove();
-	  initMap()
     }catch(err){
       $("#key_input").css("background-color", "red")
       $("#key").val('');

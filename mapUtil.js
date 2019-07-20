@@ -1,9 +1,18 @@
-var map = new BMap.Map("allmap");//创建地图实例
+var map//创建地图实例
 var current_id = 0;
-var current_location=new BMap.Point(120.54572,30.645852)
+var current_location
 var index_list,isNotShowWay="True"
+function loadJScript() {
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = "http://api.map.baidu.com/api?v=3.0&ak=MBGMU4ffOvlXQ7tD3Me88nyxVAhxK5Hs&callback=initMap";
+		document.body.appendChild(script);
+	}
+
 function initMap() {
   //初始化地图 默认加载北京天安门
+  map = new BMap.Map("allmap");
+  current_location=new BMap.Point(120.54572,30.645852)
   var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_RIGHT,type:BMAP_NAVIGATION_CONTROL_LARGE});
   map.addControl(ctrl_nav);
   //向地图中添加缩略图控件
