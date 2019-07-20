@@ -1,6 +1,6 @@
 var map = new BMap.Map("allmap");//创建地图实例
 var current_id = 0;
-var current_location;
+var current_location=new BMap.Point(120.54572,30.645852)
 var index_list
 function initMap() {
   //初始化地图 默认加载北京天安门
@@ -20,9 +20,9 @@ function initMap() {
     return index;
   });
   universities.forEach(setMarker);
-  setInterval(function(){map.clearOverlays();randomOrder();universities.forEach(setMarker);showLocation()}, 1500)
   selfLocation()
   showLocation()
+  setInterval(function(){map.clearOverlays();randomOrder();universities.forEach(setMarker);showLocation()}, 1500)
   getDataZoom();
   console.log(universities)
 }
@@ -36,9 +36,6 @@ function selfLocation(){
 		if(this.getStatus() == BMAP_STATUS_SUCCESS){
 		  current_location=new BMap.Point(r.point.lng,r.point.lat)
 		}
-	else {
-		current_location=new BMap.Point(120.54572,30.645852)
-	}        
 });}
 
 function showLocation(){
