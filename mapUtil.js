@@ -9,9 +9,6 @@ function initMap() {
   //向地图中添加缩略图控件
   var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
   map.addControl(ctrl_ove);
-  //向地图中添加比例尺控件
-  var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
-  map.addControl(ctrl_sca);
   map.centerAndZoom(new BMap.Point(119,35),6);//初始化地图，point为中心点，缩放级别为6
   map.setMapStyleV2({styleId: 'a5fddb25f2312728e44a8dd938e24fd2'});
   map.enableScrollWheelZoom();
