@@ -23,7 +23,7 @@ body, html,#allmap {
 }
 #copyright{
   position: absolute;
-  top: 230px;
+  top: 220px;
   width: 100%;
   text-align: center;
 }
@@ -46,6 +46,7 @@ body, html,#allmap {
   background-color: #f7c994;
   box-shadow: 5px 5px 5px #888888;
   padding: 30px;
+  padding-bottom: 20px;
 }
 #key{
   font-size: 18px;
