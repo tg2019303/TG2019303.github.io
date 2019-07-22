@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="icon" href="icon.ico" type="image/x-icon"/>
-  	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="icon" href="icon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8">
     <title>桐高2019届303班蹭饭图</title>
@@ -13,38 +13,39 @@
     <link rel="stylesheet" href="main.css" type="text/css" />
     <script>
       var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?f82bdf0864b6dd0dbf0ebf006fb1ddef";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-      })();
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f82bdf0864b6dd0dbf0ebf006fb1ddef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
     </script>
   </head>
   <body>
     <div id="allmap"></div>
+    <p id="welcome_title"><span id="class_name">桐高2019届303班</span><br/><b>蹭饭指北</b></p>
+    <script type="text/javascript" src="search_parser.js"> </script>
     <script type="text/javascript" src="mapUtil.js"> </script>
     <script type="text/javascript" src="infoUtil.js"> </script>
     <script type="text/javascript" src="search.js"> </script>
-    <script type="text/javascript" src="dataEncrypted.js"></script>
     <script type="text/javascript" src="decoder.js"></script>
-    <p id="welcome_title"><span>桐高2019届303班</span><br/><b>蹭饭指北</b></p>
     <div id="key_input">
       <input id="key" type="password" placeholder="我们的密钥 | 回车确认"  autofocus onKeyDown="enterdecode(event);"/>
       <br/>
       <a href="guest.html">访客入口</a>
-      </div>
-      <p id="copyright">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a><br/>
-      Powered by GitHub Pages</p>
+    </div>
+    <p id="copyright">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a><br/>
+    Powered by GitHub Pages</p>
     <div class="search_box" style="display:none">
       <button onClick="aerialView()" >鸟瞰</button>
       <input id="search_input" placeholder="人/大学/专业" onKeyDown="entersearch(event)" />
       <button id="search_button" onClick="search();" >搜索</button>
       <a href='https://www.wjx.cn/jq/42972034.aspx' target="_blank">
-      <button id="add_data" >添加信息申请</button>
+        <button id="add_data" >添加信息申请</button>
       </a>
     </div>
-     <div>
-       <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
+    <div>
+      <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
+    </div>
   </body>
 </html>
