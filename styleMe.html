@@ -90,7 +90,7 @@ $(function (){
   loadh()
   update()
     })
-function loadh(){
+function loadh(newtext){
   $("#html_input").val('张三\n<img style=\"position:relative;top:'+topn+'px;left:'+left+'px;transform:rotateZ('+angle+'deg);\" width=\"50px\" src=\"data/TG2019302/朱越.gif\"/>\n<ul>\n<li>专业：一流专业</li>\n<li>电话：12345678901</li>\n</ul>')
 }
 function update(){
@@ -105,25 +105,17 @@ function toggleOpenMap(){
 function trans(dir){
   if(dir==0){
   	topn-=1
-	loadh()
-	update()
   }else if(dir==1){
     topn+=1
-	loadh()
-	update()
   }else if(dir==2){
     left-=1
-	loadh()
-	update()
   }else if(dir==3){
     left+=1
-	loadh()
-	update()
   }else{
 	angle=dir
-	loadh()
-	update()
   }
+  loadh()
+  update()
 }
     </script>
 <textarea id="html_input" onkeydown="setTimeout(update, 00)">
