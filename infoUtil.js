@@ -13,20 +13,7 @@ function showInfo(data, hilite=-1){
   sContent += '</div><div id="student_ul" onclick="clearInfoDiv()">'
   sContent += getMoreContent(data) + '<ul>';
   data.Students.forEach(function(student, index){
-    var studentInfo = student.split("@");
-    var studentHTML = '<li class="info_li">' + studentInfo[0];
-    if (studentInfo.length > 1){
-      var attr = [ '专业：','电话：']
-      studentHTML += '<ul>'
-      for (var i=1; i<studentInfo.length; i++){
-        info = studentInfo[i]
-        if (info != ''){
-          studentHTML += '<li>' + attr[i-1] + info + '</li>'
-        }
-      }
-      studentHTML += '</ul>'
-    }
-    studentHTML += '</li>'
+    var studentHTML = '<li style="position:relative">' + student + '</li>'
     if (index == hilite){
       sContent += '<b id="student_hilite">' + studentHTML + '</b>'
       doScroll = true;
