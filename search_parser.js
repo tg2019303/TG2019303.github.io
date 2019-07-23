@@ -13,14 +13,18 @@ for (var i=0; i<searchs.length; i++){
 }
 var script = document.createElement("script");
 script.type = "text/javascript";
-script.src = "data/" + classname + ".js";
+script.src = "data/" + classname + "/dataEncrypted.js";
 document.body.appendChild(script);
 var script = document.createElement("script");
 script.type = "text/javascript";
-script.src = "data/" + classname + ".json";
+script.src = "data/" + classname + "/dataExample.js";
+document.body.appendChild(script);
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "data/" + classname + "/main.js";
 document.body.appendChild(script);
 var csslink = document.createElement("link");
 csslink.rel = "stylesheet";
 csslink.type = "text/css";
-csslink.href = "data/" + classname + ".css";
+csslink.href = "data/" + classname + "/main.css";
 document.body.appendChild(csslink);
