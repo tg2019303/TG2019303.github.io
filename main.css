@@ -123,3 +123,23 @@ body, html,#allmap {
 #ctext a{
   color: #999;
 }
+#seeus{
+  font-size: 1.5em;
+	position: absolute;
+  bottom: 20px;
+  right: 20px;
+	color: #999;
+	width: 100%;
+  text-align: right;
+}
+#groupimg{
+  display: none;
+  border-radius: 21px;
+  opacity: 0.9;
+  max-width: 90%;
+  max-height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
