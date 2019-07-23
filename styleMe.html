@@ -119,6 +119,10 @@ function trans(dir){
     left+=1
 	loadh()
 	update()
+  }else{
+	angle=dir
+	loadh()
+	update()
   }
 }
     </script>
@@ -130,6 +134,7 @@ function trans(dir){
 <button style="position:relative;left:35px;" onClick="trans(1)">DOWN</button>
 <button style="position:relative;left:40px;" onClick="trans(2)">LEFT</button>
 <button style="position:relative;left:45px;" onClick="trans(3)">RIGHT</button>
+<input style="position:relative;left:55px;" type="range" min="-180" max="180" value="0" onchange="trans(this.value)" />
 <div class="infoUniversity">
   <div id="title_bar"><span>&emsp;清华大学</span><span id="open_map_trigger" onclick="toggleOpenMap()"><b>· · ·</b></span></div>
   <div id="student_ul" onclick="clearInfoDiv()"><div id="open_maps"><a href="#">直接去蹭饭</a><br><a href="#">百度地图App</a><br><a href="#" target="blank" onclick="reminder()">百度地图网页版</a></div>
