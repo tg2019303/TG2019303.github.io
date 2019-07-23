@@ -32,7 +32,7 @@
     <div id="key_input">
       <input id="key" type="password" placeholder="我们的密钥 | 回车确认"  autofocus onKeyDown="enterdecode(event);"/>
       <br/>
-      <a href="guest.html">访客入口</a>
+      <a href="javascript:goGuest()">访客入口</a>
     </div>
     <p id="copyright">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a><br/>
     Powered by GitHub Pages</p>
@@ -43,6 +43,7 @@
       <a href='https://www.wjx.cn/jq/42972034.aspx' target="_blank">
         <button id="add_data" >添加信息申请</button>
       </a>
+      <a id="back_main" href="javascript:location.reload()">我不是访客</a>
     </div>
     <div>
       <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
