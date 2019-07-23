@@ -92,7 +92,7 @@ $(function (){
 function update(){
   $(".your_info").text("")
   $($.parseHTML($("#html_input").val())).appendTo(".your_info")
-  $("#copyit").attr("data-clipboard-text", $("#html_input").val().replace(/(\r\n|\n|\r)/gm,""))
+  $("#copyit").attr("data-clipboard-text", $("#html_input").val().replace(/(\r\n|\n|\r)/gm,"").replace(/"/gm, "\\\""))
 }
 function toggleOpenMap(){
   $("#open_maps").slideToggle()
