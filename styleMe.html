@@ -84,11 +84,15 @@ textarea {
   </head>
   <body>
     <script charset="utf-8">
+var topn=8;left=-2;angle=-30;
 $(function (){
   new ClipboardJS('#copyit');
-  $("#html_input").val("张三\n<img style=\"position:absolute\" width=\"50px\" src=\"data/TG2019302/殷凯艺.gif\"/>\n<ul>\n<li>专业：一流专业</li>\n<li>电话：12345678901</li>\n</ul>")
-    update()
+  loadh()
+  update()
     })
+function loadh(){
+  $("#html_input").val('张三\n<img style=\"position:relative;top:'+topn+'px;left:'+left+'px;transform:rotateZ('+angle+'deg);\" width=\"50px\" src=\"data/TG2019302/朱越.gif\"/>\n<ul>\n<li>专业：一流专业</li>\n<li>电话：12345678901</li>\n</ul>')
+}
 function update(){
   $(".your_info").text("")
   $($.parseHTML($("#html_input").val())).appendTo(".your_info")
@@ -98,10 +102,33 @@ function toggleOpenMap(){
   $("#open_maps").slideToggle()
   $("#student_ul").scrollTop(0);
 }
+function trans(dir){
+  if(dir==0){
+  	topn-=1
+	loadh()
+	update()
+  }else if(dir==1){
+    topn+=1
+	loadh()
+	update()
+  }else if(dir==2){
+    left-=1
+	loadh()
+	update()
+  }else if(dir==3){
+    left+=1
+	loadh()
+	update()
+  }
+}
     </script>
 <textarea id="html_input" onkeydown="setTimeout(update, 00)">
 </textarea>
 <button id="copyit" data-clipboard-action="copy">Copy</button>
+<button style="position:relative;left:30px;" onClick="trans(0)">UP</button>
+<button style="position:relative;left:35px;" onClick="trans(1)">DOWN</button>
+<button style="position:relative;left:40px;" onClick="trans(2)">LEFT</button>
+<button style="position:relative;left:45px;" onClick="trans(3)">RIGHT</button>
 <div class="infoUniversity">
   <div id="title_bar"><span>&emsp;清华大学</span><span id="open_map_trigger" onclick="toggleOpenMap()"><b>· · ·</b></span></div>
   <div id="student_ul" onclick="clearInfoDiv()"><div id="open_maps"><a href="#">直接去蹭饭</a><br><a href="#">百度地图App</a><br><a href="#" target="blank" onclick="reminder()">百度地图网页版</a></div>
