@@ -124,13 +124,13 @@ body, html,#allmap {
   color: #999;
 }
 #seeus{
-  font-size: 1.5em;
+	font-size: 1.5em;
 	position: absolute;
-  bottom: 20px;
-  right: 20px;
+	bottom: 8px;
+	right: 12px;
 	color: #999;
-	width: 100%;
-  text-align: right;
+	width: 63px;
+	text-align: right;
 }
 #groupimg{
   display: none;
