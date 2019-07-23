@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Test</title>
+    <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<!--{{{-->
+    <style type="text/css" media="screen">
+.infoUniversity{
+  border-radius: 21px;
+  box-shadow: 5px 5px 5px #888888;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  font-size: 16px;
+  position: absolute;
+  width: 70%;
+  max-width: 400px;
+  height: 30%;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  overflow: hidden;
+}
+#open_map_trigger{
+  position: absolute;
+  right: 20px;
+}
+#open_maps{
+  display: none;
+  text-align: right;
+  padding-right: 10px;
+}
+#open_maps a{
+  color: white;
+  text-decoration: none;
+  font-size: 16px
+}
+#bdreminder{
+  display: none;
+  text-align: right;
+  padding-right: 5px;
+  font-size:12px;
+}
+#title_bar{
+  width: 100%;
+  height: 16%;
+  padding-top: 3%;
+  padding-bottom: 0%;
+  background-color: #fe8c0f;
+  opacity: 0.8;
+}
+#student_ul{
+  font-size: 15px;
+  width: 100%;
+  height: 84%;
+  overflow-y: scroll;
+  background-color: #f7b56a;
+  opacity: 0.9;
+}
+#student_ul ul{
+  padding-left: 30px
+}
+#student_ul ul ul{
+  padding-left: 25px;
+}
+#student_hilite{
+  color: yellow;
+}
+    </style>
+    <!-- }}} -->
+    <style type="text/css" media="screen">
+textarea {
+  position: absolute;
+  width: 80%;
+  height: 30%;
+  top: 10%;
+  left: 10%;
+  font-size: 18px;
+  word-break: break-all;
+}
+    </style>
+  </head>
+  <body>
+    <script charset="utf-8">
+$(function (){
+  new ClipboardJS('#copyit');
+  $("#html_input").val("张三\n<img style=\"position:absolute\" width=\"50px\" src=\"data/TG2019302/殷凯艺.gif\"/>\n<ul>\n<li>专业：一流专业</li>\n<li>电话：12345678901</li>\n</ul>")
+    update()
+    })
+function update(){
+  $(".your_info").text("")
+  $($.parseHTML($("#html_input").val())).appendTo(".your_info")
+  $("#copyit").attr("data-clipboard-text", $("#html_input").val().replace(/(\r\n|\n|\r)/gm,""))
+}
+function toggleOpenMap(){
+  $("#open_maps").slideToggle()
+  $("#student_ul").scrollTop(0);
+}
+    </script>
+<textarea id="html_input" onkeydown="setTimeout(update, 00)">
+</textarea>
+<button id="copyit" data-clipboard-action="copy">Copy</button>
+<div class="infoUniversity">
+  <div id="title_bar"><span>&emsp;清华大学</span><span id="open_map_trigger" onclick="toggleOpenMap()"><b>· · ·</b></span></div>
+  <div id="student_ul" onclick="clearInfoDiv()"><div id="open_maps"><a href="#">直接去蹭饭</a><br><a href="#">百度地图App</a><br><a href="#" target="blank" onclick="reminder()">百度地图网页版</a></div>
+    <ul>
+      <li class="your_info" style="position:relative"> </li>
+      <li class="your_info" style="position:relative"> </li>
+      <li class="your_info" style="position:relative"> </li>
+    </ul>
+    <p style="font-size: 12px; text-align: center"><br>轻触关闭窗口</p><br>
+  </div>
+</div>
+  </body>
+</html>
