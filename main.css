@@ -37,6 +37,9 @@ body, html,#allmap {
   right: 50px;
   text-align: left;
 }
+#class_select{
+  width: 100px;
+}
 #key_input{
   position: absolute;
   top: 100px;

@@ -43,9 +43,19 @@
       <a id="add_data" href='https://www.wjx.cn/jq/42972034.aspx' target="_blank">
         <button>添加信息申请</button>
       </a>
+      <select onchange="goVisit()" id="class_select">
+        <option value="" disabled selected hidden>看看其他班</option>
+        <option value="TG2019302">桐高2019届302班</option>
+        <option value="TG2019303">桐高2019届303班</option>
+      </select>
       <a id="back_main" href="javascript:location.reload()">我不是访客</a>
     </div>
     <div>
+    <script charset="utf-8">
+      function goVisit(){
+        location.href = "https://tg2019303.github.io/?banji=" + $('#class_select option:selected').val();
+      }
+    </script>
       <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
     </div>
     <div id="seeus" onMouseDown="$('#groupimg').slideToggle()">我们</div>

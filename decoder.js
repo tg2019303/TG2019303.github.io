@@ -8,6 +8,7 @@ function enterdecode(e){
       eval(f)
       clearAndLoad();
       $("#back_main").remove()
+      $("#class_select").remove()
       $(".search_box").slideToggle()
     }catch(err){
       $("#key_input").css("background-color", "red")
