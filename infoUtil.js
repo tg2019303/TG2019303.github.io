@@ -3,11 +3,12 @@ function showInfo(data, hilite=-1){
   clearInfoDiv();
   var doScroll = false;
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
+  univHTML = `&emsp;<a style="text-decoration:none;color:white" href="https://www.baidu.com/s?wd=${data.University}" target="blank">${data.University}</a>`
   if (hilite == -2){
-    sContent += '<b><span style="color:yellow">&emsp;' + data.University + '</span></b>'
+    sContent += '<b><span style="color:yellow">' + univHTML + '</span></b>'
   }else{
     //Browser compatibility
-    sContent += '<span>&emsp;' + data.University + '</span>'
+    sContent += '<span>' + univHTML + '</span>'
   };
   sContent += '<span id="open_map_trigger" onclick="toggleOpenMap()"><b>· · ·</b></span>'
   sContent += '</div><div id="student_ul" onclick="clearInfoDiv()">'
