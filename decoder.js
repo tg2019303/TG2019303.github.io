@@ -28,6 +28,7 @@ function clearAndLoad(){
   loadJScript();
   $("#key_input").remove();
   $("#ctext").removeAttr("hidden")
+  $("#seeus").removeAttr("hidden")
   $("#welcome_title").remove();
   $("#copyright").remove();
 }

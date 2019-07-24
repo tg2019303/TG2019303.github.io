@@ -132,9 +132,11 @@ body, html,#allmap {
 	position: absolute;
 	bottom: 8px;
 	right: 12px;
-	color: #999;
 	width: 63px;
 	text-align: right;
+  background-image:-webkit-linear-gradient(bottom,red,#fd8403,yellow);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 #groupimg{
   display: none;
