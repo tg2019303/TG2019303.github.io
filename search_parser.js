@@ -33,10 +33,3 @@ csslink.rel = "stylesheet";
 csslink.type = "text/css";
 csslink.href = "data/" + classname + "/main.css";
 document.body.appendChild(csslink);
-if (isguest == 1){
-  goGuest();
-}else{
-  $("#key_input").removeAttr("hidden");
-  $("#welcome_title").removeAttr("hidden");
-  $("#copyright").removeAttr("hidden");
-}
