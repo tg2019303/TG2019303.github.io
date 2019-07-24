@@ -229,4 +229,5 @@ universities = [
         ],
         "University": "西南财经大学"
     }
-]
+];
+testGuest()

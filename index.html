@@ -52,15 +52,6 @@
     <script type="text/javascript" src="infoUtil.js"> </script>
     <script type="text/javascript" src="search.js"> </script>
     <script charset="utf-8">
-      $(function(){
-        if (isguest == 1){
-          goGuest();
-        }else{
-          $("#key_input").removeAttr("hidden");
-          $("#welcome_title").removeAttr("hidden");
-          $("#copyright").removeAttr("hidden");
-        }
-      });
       function goVisit(){
         location.href = "/?banji=" + $('#class_select option:selected').val() + "&guest=1";
       }

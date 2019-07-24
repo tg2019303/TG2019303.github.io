@@ -227,4 +227,5 @@ universities = [
         ],
         "University": "青岛大学中心校区"
     }
-]
+];
+testGuest()
