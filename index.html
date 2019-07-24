@@ -44,7 +44,7 @@
         <button>添加信息申请</button>
       </a>
       <select onchange="goVisit()" id="class_select">
-        <option value="" disabled selected hidden>看看其他班</option>
+        <option value="" disabled selected hidden>加载其他班</option>
         <option value="TG2019302">桐高2019届302班</option>
         <option value="TG2019303">桐高2019届303班</option>
       </select>
@@ -53,7 +53,10 @@
     <div>
     <script charset="utf-8">
       function goVisit(){
-        location.href = "https://tg2019303.github.io/?banji=" + $('#class_select option:selected').val();
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "data/" + $('#class_select option:selected').val() + "/dataExample.js";
+        document.body.appendChild(script);
       }
     </script>
       <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
