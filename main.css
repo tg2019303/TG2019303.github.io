@@ -80,8 +80,6 @@ body, html,#allmap {
   display: none;
 }
 #open_maps{
-  position:absolute;
-  right:10px;
   text-align: right;
   padding-right: 10px;
 }
@@ -156,8 +154,4 @@ body, html,#allmap {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-#univ_detail{
-	font-size:12px;
-		
 }
