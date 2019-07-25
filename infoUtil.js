@@ -49,13 +49,13 @@ function getMoreContent(data){
   }
   var UA = window.navigator.userAgent.toLocaleLowerCase()
   if(/iphone|ipad|ipod/.test(UA)){//ios
-    moreContent += `<span id=open_maps onClick="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">`;
+    moreContent += `<span id=open_maps onClick="window.location.href='baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage'">`;
   }else{
-    moreContent += `<span id=open_maps onClick="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage">`;
+    moreContent += `<span id=open_maps onClick="window.location.href='bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage'">`;
   }
   moreContent += '百度地图App</span><br/>'
   my = getmylocation()
-  moreContent += `<span id=open_maps onClick="http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo" target="blank" onClick="reminder()">百度地图网页版</span><br>`
+  moreContent += `<span id=open_maps onclick="window.location.href='http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo'" target="blank" onClick="reminder()">百度地图网页版</span><br>`
   moreContent += '</div>'
   return moreContent;
 }
