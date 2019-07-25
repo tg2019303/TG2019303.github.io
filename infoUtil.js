@@ -55,7 +55,7 @@ function getMoreContent(data){
   }
   moreContent += '百度地图App</span><br/>'
   my = getmylocation()
-  moreContent += `<span id=open_maps onclick="window.location.href='http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo'" target="blank" onClick="reminder()">百度地图网页版</span><br>`
+  moreContent += `<span id=open_maps onclick="javascript:window.open('http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo','_blank')">百度地图网页版</span><br>`
   moreContent += '</div>'
   return moreContent;
 }
