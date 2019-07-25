@@ -76,8 +76,10 @@ body, html,#allmap {
   position: absolute;
   right: 20px;
 }
-#open_maps{
+#more_action{
   display: none;
+}
+#open_maps{
   text-align: right;
   padding-right: 10px;
 }
@@ -152,9 +154,4 @@ body, html,#allmap {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-#univ_more{
-  position:relative;
-  left:10px;
-  font-size:11px;
 }
