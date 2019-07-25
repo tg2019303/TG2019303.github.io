@@ -36,32 +36,26 @@ function clearInfoDiv(){
   $(".infoUniversity").remove()
 }
 function toggleOpenMap(){
-  $("#open_maps").slideToggle()
+  $("#more_action").slideToggle()
   $("#student_ul").scrollTop(0);
 }
 function getMoreContent(data){
-  var moreContent = '<div id="open_maps">';
-  moreContent += `<a id="addr" style="position:absolute;left:5px;font-size:12px">地址：${data.Address}</a><a href="javascript:showWay(${data.Lng},${data.Lat});clearInfoDiv()">直接去蹭饭</a><br/>`;
+  var univContent = '<div id="more_action">';
+  univContent += '<span id=univ_detail>地址：' + data.Address;
+  var moreContent = univContent
+  moreContent += `</span><span id=open_maps onClick="javascript:showWay(${data.Lng},${data.Lat});clearInfoDiv()">直接去蹭饭</span><br/>`;
   if (data.Telephone != ''){
-    moreContent+=`<a id="tele" style="position:absolute;left:5px;font-size:12px">电话：${data.Telephone}</a>`
+    moreContent += '<span id=univ_detail>电话：' + data.Telephone+'</span>'
   }
   var UA = window.navigator.userAgent.toLocaleLowerCase()
   if(/iphone|ipad|ipod/.test(UA)){//ios
-    moreContent += `<a href="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">`;
+    moreContent += `<span id=open_maps onClick="baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage">`;
   }else{
-    moreContent += `<a href="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage">`;
+    moreContent += `<span id=open_maps onClick="bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage">`;
   }
-  moreContent += '百度地图App</a><br/>'
+  moreContent += '百度地图App</span><br/>'
   my = getmylocation()
-  moreContent += `<a href="http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo" target="blank" onClick="reminder()">百度地图网页版</a>`
+  moreContent += `<span id=open_maps onClick="http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo" target="blank" onClick="reminder()">百度地图网页版</span><br>`
   moreContent += '</div>'
   return moreContent;
 }
-/*function getUnivDetail(data){
-  var univContent = '<div hidden="True" id="univ_detail">';
-  univContent += '地址：' + data.Address;
-  if (data.Telephone != ''){
-    univContent += '<br/>电话：' + data.Telephone
-  }
-  return univContent + '</div>';
-}*/
