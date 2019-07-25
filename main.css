@@ -153,8 +153,3 @@ body, html,#allmap {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#univ_more{
-  position:relative;
-  left:10px;
-  font-size:11px;
-}
