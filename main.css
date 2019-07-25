@@ -100,6 +100,10 @@ body, html,#allmap {
   background-color: #fe8c0f;
   opacity: 0.8;
 }
+#univ_detail{
+  font-size: 12px;
+  padding-left: 10px;
+}
 #student_ul{
   font-size: 15px;
   width: 100%;

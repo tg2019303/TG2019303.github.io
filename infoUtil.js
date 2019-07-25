@@ -12,7 +12,7 @@ function showInfo(data, hilite=-1){
   };
   sContent += '<span id="open_map_trigger" onclick="toggleOpenMap()"><b>· · ·</b></span>'
   sContent += '</div><div id="student_ul" onclick="clearInfoDiv()">'
-  sContent += getMoreContent(data) + '<ul>';
+  sContent += getMoreContent(data) +getUnivDetail(data) + '<ul>';
   data.Students.forEach(function(student, index){
     var studentHTML = '<li style="position:relative">' + student + '</li>'
     if (index == hilite){
@@ -53,4 +53,12 @@ function getMoreContent(data){
   moreContent += `<a href="http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo" target="blank" onClick="reminder()">百度地图网页版</a>`
   moreContent += '</div>'
   return moreContent;
+}
+function getUnivDetail(data){
+  var univContent = '<div id="univ_detail">';
+  univContent += '地址：' + data.Address;
+  if (data.Telephone != ''){
+    univContent += '<br/>电话：' + data.Telephone
+  }
+  return univContent + '</div>';
 }
