@@ -3,7 +3,7 @@ function showInfo(data, hilite=-1){
   clearInfoDiv();
   var doScroll = false;
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
-  univHTML = `&emsp;<a style="text-decoration:none;color:white" href="https://www.baidu.com/s?wd=${data.University}" onMouseOver="$('#univ_detail').slideToggle()" onMouseOut="$('#univ_detail').slideToggle()" target="blank">${data.University}</a>`
+  univHTML = `&emsp;<a style="text-decoration:none;color:white" href="https://www.baidu.com/s?wd=${data.University}" target="blank">${data.University}</a><a id="univ_more" onClick="$('#univ_detail').slideToggle()">More</a>`
   if (hilite == -2){
     sContent += '<b><span style="color:yellow">' + univHTML + '</span></b>'
   }else{
