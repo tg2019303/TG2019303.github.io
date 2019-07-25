@@ -115,9 +115,14 @@ body, html,#allmap {
   opacity: 0.9;
 }
 #student_ul ul{
+  margin-top: 7px;
   padding-left: 30px
 }
+#student_ul ul li{
+  position: relative;
+}
 #student_ul ul ul{
+  margin-top: 0px;
   padding-left: 25px;
 }
 #student_hilite{

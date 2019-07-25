@@ -14,12 +14,11 @@ function showInfo(data, hilite=-1){
   sContent += '</div><div id="student_ul" onclick="clearInfoDiv()">'
   sContent += getMoreContent(data) + '<ul>';
   data.Students.forEach(function(student, index){
-    var studentHTML = '<li style="position:relative">' + student + '</li>'
     if (index == hilite){
-      sContent += '<b id="student_hilite">' + studentHTML + '</b>'
+      sContent += '<b id="student_hilite">' + student+ '</b>'
       doScroll = true;
     }else{
-      sContent += studentHTML
+      sContent += student
     }});
   sContent += '</ul><p style="font-size: 12px; text-align: center"><br/>轻触关闭窗口</p><br></div></div>';
   map.centerAndZoom(data.Marker.getPosition(), Math.max(data.Zoom, map.getZoom()));

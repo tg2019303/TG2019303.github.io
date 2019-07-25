@@ -5,6 +5,7 @@ function enterdecode(e){
       d=CryptoJS.AES.decrypt(data, key)
       e=CryptoJS.enc.Latin1.stringify(d)
       f=decodeURIComponent(escape(window.atob(e)))
+      console.log(f)
       eval(f)
       clearAndLoad();
       $("#back_main").remove()
