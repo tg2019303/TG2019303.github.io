@@ -57,6 +57,12 @@ body, html,#allmap {
   width: 200px;
   margin-bottom: 13px
 }
+.BMapLabel{
+  color: #ddd;
+  border: 2px solid #808080 !IMPORTANT;
+  cursor: pointer !IMPORTANT;
+  background-color: #ec2d2d !IMPORTANT;
+}
 .infoUniversity{
   border-radius: 21px;
   box-shadow: 5px 5px 5px #888888;

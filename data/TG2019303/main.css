@@ -1,3 +1,8 @@
 .king{
   color: #fee;
 }
+.BMapLabel{
+  color: #444;
+  border-color: #ce7410 !IMPORTANT;
+  background-color: orange !IMPORTANT;
+}

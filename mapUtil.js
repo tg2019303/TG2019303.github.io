@@ -2,6 +2,8 @@ var map//创建地图实例
 var current_id = 0;
 var current_location
 var index_list,isNotShowWay="True"
+var pointer_color = "#ec2d2d"
+var ico
 function loadJScript() {
 		var script = document.createElement("script");
 		script.type = "text/javascript";
@@ -25,12 +27,15 @@ function initMap() {
   index_list=Array.from({length:universities.length}).map((item,index)=>{
     return index;
   });
+  var mySVG = `<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="19px" height="25px" viewBox="0 0 19 25" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,25.000000) scale(0.100000,-0.100000)" stroke="none"> <path fill="${pointer_color}" d="M35 215 c-44 -43 -32 -105 37 -188 l23 -29 43 57 c33 45 42 66 42 97 0 52 -35 88 -85 88 -25 0 -44 -8 -60 -25z m41 0 c-16 -9 -35 -23 -42 -33 -14 -18 -19 -5 -6 14 10 15 44 33 62 34 8 0 2 -7 -14 -15z"/> </g> </svg>`
+  var mySVG64 = "data:image/svg+xml;base64," + window.btoa(mySVG);
+  ico = new BMap.Icon(mySVG64, new BMap.Size(19, 25), {anchor: new BMap.Size(10, 25)})
   universities.forEach(setMarker);
   selfLocation()
   showLocation()
   setInterval(function(){if(isNotShowWay=="True"){map.clearOverlays();randomOrder();universities.forEach(setMarker);showLocation()}}, 1500)
   getDataZoom();
-  console.log(universities)
+  console.log(pointer_color)
 }
 function aerialView(){
   clearInfoDiv();
@@ -47,36 +52,23 @@ function selfLocation(){
 
 function showLocation(){
 	var marker=new BMap.Marker(current_location)
-	var lab = new BMap.Label('<b>我的位置</b>')
+	var lab = new BMap.Label('<b>我的位置</b>', {offset: new BMap.Size(0, -4)})
 		  marker.setLabel(lab)
 		  map.addOverlay(marker)
-		  lab.setStyle({
-			borderColor: "#808080",
-			borderWidth: 2,
-			color: "#ddd",
-			cusor: "pointer",
-			backgroundColor: "#ec2d2d"
-		  })
 }
 
 
 function setMarker(data, index){
   var point = new BMap.Point(data.Lng, data.Lat);
   var mk = new BMap.Marker(point);
-  var label = new BMap.Label('<b>'+data.University+'</b>');
+  var label = new BMap.Label('<b>'+data.University+'</b>', {offset: new BMap.Size(0, -4)});
   data.Marker = mk;
   //var index = Math.floor((Math.random() * 300) + 20);
   mk.setZIndex(index_list[index])
   mk.setLabel(label);
+  mk.setIcon(ico)
   mk.disableDragging();// 不可拖拽
   map.addOverlay(mk);
-  label.setStyle({
-    borderColor: "#808080",
-    borderWidth: 2,
-    color: "#ddd",
-    cusor: "pointer",
-    backgroundColor: "#ec2d2d"
-  });
   //给标注点添加点击事件。使用立即执行函数和闭包
   //Closure: function in function, lenthening the life time of variable
   (function() {
