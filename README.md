@@ -2,6 +2,8 @@
 The TG2019303 IT Research Center Official Page
 
 ## 使用说明
+[微信公众号文章链接](https://mp.weixin.qq.com/s/fgpADvMAB6j3pKWQAUwKeA)
+
 这是桐高2019届303班IT研究中心倾力打造的动态大学蹭饭图。
 
 正确输入密钥并回车确认后，你可以自由地移动、缩放地图，查看大学周边。
