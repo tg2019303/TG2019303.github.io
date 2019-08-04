@@ -25,6 +25,7 @@ function goGuest(){
   $("#add_data").remove()
   $(".search_box").slideToggle()
 }
+//进入主页面和访客页面共同需要的操作
 function clearAndLoad(){
   loadJScript();
   $("#key_input").remove();

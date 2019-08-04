@@ -36,6 +36,7 @@ function clearInfoDiv(){
 }
 function toggleOpenMap(){
   $("#more_action").slideToggle()
+  //使内容的 div 滚回顶部以看见更多操作
   $("#student_ul").scrollTop(0);
 }
 function getMoreContent(data){

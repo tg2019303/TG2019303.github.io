@@ -34,6 +34,7 @@ csslink.type = "text/css";
 csslink.href = "data/" + classname + "/main.css";
 document.body.appendChild(csslink);
 
+//测试是否进入 guest 页面
 function testGuest(){
   if (isguest == 1){
     goGuest();
