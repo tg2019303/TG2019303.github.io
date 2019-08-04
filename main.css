@@ -112,6 +112,9 @@ body, html,#allmap {
   font-size: 12px;
   padding-left: 10px;
 }
+#univ_hilite a{
+  color: yellow !IMPORTANT;
+}
 #student_ul{
   font-size: 15px;
   width: 100%;

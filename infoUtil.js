@@ -5,9 +5,9 @@ function showInfo(data, hilite=-1){
   var sContent = '<div class="infoUniversity"><div id="title_bar">'
   univHTML = `&emsp;<a style="text-decoration:none;color:white" href="https://www.baidu.com/s?wd=${data.University}" target="blank">${data.University}</a>`
   if (hilite == -2){
-    sContent += '<b><span style="color:yellow">' + univHTML + '</span></b>'
+    sContent += '<b><span id="univ_hilite">' + univHTML + '</span></b>'
   }else{
-    //Browser compatibility
+    //Use span for browser compatibility
     sContent += '<span>' + univHTML + '</span>'
   };
   sContent += '<span id="open_map_trigger" onclick="toggleOpenMap()"><b>· · ·</b></span>'
