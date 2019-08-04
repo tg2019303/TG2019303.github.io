@@ -21,7 +21,11 @@ function showInfo(data, hilite=-1){
       sContent += student
     }});
   sContent += '</ul><p style="font-size: 12px; text-align: center"><br/>轻触关闭窗口</p><br></div></div>';
-  map.centerAndZoom(data.Marker.getPosition(), Math.max(data.Zoom, map.getZoom()));
+  // map.centerAndZoom(data.Marker.getPosition(), Math.max(data.Zoom, map.getZoom()));
+  // 采用平移动画
+  // 先 setZoom 再 panTo，否则中心点不准
+  map.setZoom(Math.max(data.Zoom, map.getZoom()))
+  map.panTo(data.Marker.getPosition())
   sContent = $.parseHTML(sContent);
   $(sContent).appendTo("body")
   $("body").add(sContent);
