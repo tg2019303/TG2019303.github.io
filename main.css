@@ -94,12 +94,6 @@ body, html,#allmap {
   text-decoration: none;
   font-size: 16px
 }
-#bdreminder{
-  display: none;
-  text-align: right;
-  padding-right: 5px;
-  font-size:12px;
-}
 #title_bar{
   width: 100%;
   height: 16%;
