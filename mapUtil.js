@@ -4,6 +4,8 @@ var current_location
 var index_list,isNotShowWay="True"
 var pointer_color = "#ec2d2d"
 var ico
+var init_point = [119, 35]
+var init_zoom = 6
 
 function loadJScript() {
   var script = document.createElement("script");
@@ -21,7 +23,8 @@ function initMap() {
   //向地图中添加缩略图控件
   var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
   map.addControl(ctrl_ove);
-  map.centerAndZoom(new BMap.Point(119,35),6);//初始化地图，point为中心点，缩放级别为6
+  //初始化地图，point为中心点，缩放级别为6
+  map.centerAndZoom(new BMap.Point(init_point[0], init_point[1]), init_zoom);
   map.setMapStyleV2({styleId: 'a5fddb25f2312728e44a8dd938e24fd2'});
   map.enableScrollWheelZoom();
   index_list=Array.from({length:universities.length}).map((item,index)=>{
@@ -44,7 +47,7 @@ function aerialView(){
   clearInfoDiv();
   //去掉flag使导航信息在下一次 clearOverlays 中去除
   isNotShowWay="True"
-  map.centerAndZoom(new BMap.Point(119,35),6);//初始化地图，point为中心点，缩放级别为6
+  map.centerAndZoom(new BMap.Point(init_point[0], init_point[1]), init_zoom);
 }
 
 function selfLocation(){
