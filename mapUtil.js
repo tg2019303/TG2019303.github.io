@@ -145,4 +145,5 @@ function getZoom (min_dis) {
       return 18-i+1;//再略大一号
     }
   };
+  return 6;
 }
