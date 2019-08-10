@@ -14,7 +14,7 @@ universities = [
         "Lat": 39.980479,
         "Lng": 116.320708,
         "Students": [
-            "<li class=\\\"\\\">**旭<ul></ul></li>"
+            "<li class=\\\"\\\">******晨<ul></ul></li>"
         ],
         "Telephone": "(010)62511859",
         "University": "中国人民大学附属中学"
@@ -44,7 +44,7 @@ universities = [
         "Lat": 30.459763,
         "Lng": 114.397569,
         "Students": [
-            "<li class=\\\"\\\">**宇<ul></ul></li>"
+            "<li class=\\\"\\\">******东<ul></ul></li>"
         ],
         "Telephone": "(027)87920649",
         "University": "华中师范大学第一附属中学"
@@ -58,6 +58,16 @@ universities = [
         ],
         "Telephone": "",
         "University": "四川省绵阳中学"
+    },
+    {
+        "Address": "宁波市镇海区鼓楼东路32号",
+        "Lat": 29.96109,
+        "Lng": 121.726786,
+        "Students": [
+            "<li class=\\\"\\\">**芝<ul></ul></li>"
+        ],
+        "Telephone": "(0574)86273255",
+        "University": "宁波镇海中学"
     },
     {
         "Address": "珍泉路2",
@@ -90,6 +100,16 @@ universities = [
         "University": "广元外国语学校"
     },
     {
+        "Address": "广西壮族自治区桂林市八里街八里五路8号",
+        "Lat": 25.352313,
+        "Lng": 110.324121,
+        "Students": [
+            "<li class=\\\"\\\">**光<ul></ul></li>"
+        ],
+        "Telephone": "(0773)2669986",
+        "University": "广西师范大学附属中学"
+    },
+    {
         "Address": "日照北路30号山东省日照第一中学附近",
         "Lat": 35.444871,
         "Lng": 119.468616,
@@ -120,6 +140,46 @@ universities = [
         "University": "河南鹤壁高中"
     },
     {
+        "Address": "浙江省嘉兴市桐乡市中山西路528号",
+        "Lat": 30.646652,
+        "Lng": 120.545375,
+        "Students": [
+            "<li class=\\\"\\\">**冰<ul></ul></li>"
+        ],
+        "Telephone": "(0573)88082677",
+        "University": "浙江桐乡高级中学"
+    },
+    {
+        "Address": "浙江省杭州市滨江区东信大道76号",
+        "Lat": 30.183484,
+        "Lng": 120.145131,
+        "Students": [
+            "<li class=\\\"\\\">**皓<ul></ul></li>"
+        ],
+        "Telephone": "(0571)86698111",
+        "University": "浙江省杭州第二中学"
+    },
+    {
+        "Address": "河北省石家庄市新华区兴凯路187号",
+        "Lat": 38.058789,
+        "Lng": 114.485411,
+        "Students": [
+            "<li class=\\\"\\\">*时<ul></ul></li>"
+        ],
+        "Telephone": "(0311)87022964",
+        "University": "石家庄二中"
+    },
+    {
+        "Address": "衡水市桃城区英才路228号",
+        "Lat": 37.722187,
+        "Lng": 115.717218,
+        "Students": [
+            "<li class=\\\"\\\">*晨<ul></ul></li>"
+        ],
+        "Telephone": "(0318)2126903",
+        "University": "衡水中学"
+    },
+    {
         "Address": "西安市碑林区友谊西路127",
         "Lat": 34.246436,
         "Lng": 108.923189,
@@ -130,6 +190,26 @@ universities = [
         "University": "西北工业大学附属中学"
     },
     {
+        "Address": "贵州省贵阳市观山湖区兴筑东路1号",
+        "Lat": 26.628248,
+        "Lng": 106.633297,
+        "Students": [
+            "<li class=\\\"\\\">*俊<ul></ul></li>"
+        ],
+        "Telephone": "(0851)87986565",
+        "University": "贵阳一中"
+    },
+    {
+        "Address": "重庆市铜梁区东城街道塔山东街666号",
+        "Lat": 29.845604,
+        "Lng": 106.074622,
+        "Students": [
+            "<li class=\\\"\\\">*欣<ul></ul></li>"
+        ],
+        "Telephone": "(023)45877608",
+        "University": "重庆市巴川国际高级中学"
+    },
+    {
         "Address": "宁夏回族自治区银川市兴庆区民族南街656号",
         "Lat": 38.455853,
         "Lng": 106.275437,
@@ -138,6 +218,16 @@ universities = [
         ],
         "Telephone": "(0951)4102908",
         "University": "银川一中"
+    },
+    {
+        "Address": "湖南省长沙市天心区学院街24号",
+        "Lat": 28.192245,
+        "Lng": 112.981461,
+        "Students": [
+            "<li class=\\\"\\\">**奕<ul></ul></li>"
+        ],
+        "Telephone": "(0731)85287900",
+        "University": "长沙市长郡中学"
     },
     {
         "Address": "湖南省长沙市雨花区劳动西路428号",

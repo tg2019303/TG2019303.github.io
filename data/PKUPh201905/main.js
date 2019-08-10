@@ -1,11 +1,13 @@
 document.title = "来源分布图";
-$("#class_name").text("所以班级正式名称是？")
+$("#class_name").text("北大物院2019级5班")
 $("#welcome_title b").text("来源分布")
 $("#groupimg").remove()
 $("#add_data").remove()
 $("#seeus").remove()
+$("#search_input").attr("placeholder", "人/中学")
 init_point = [115, 35]
 init_zoom = 5
+pointer_color = '#caaf40'
 function setMarker(data, index){
   var point = new BMap.Point(data.Lng, data.Lat);
   var mk = new BMap.Marker(point);
