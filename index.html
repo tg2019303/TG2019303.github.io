@@ -50,7 +50,7 @@
     <div id="vapp">
       <div id="infoUniversity" v-if="show_info_div">
         <div id="title_bar">
-          <span v-bind:class="{univ_hilite: hilite_univ}">
+          <span v-bind:class="{ univ_hilite: hilite_univ }">
             <a style="text-decoration:none;color:white" v-bind:href="`https://www.baidu.com/s?wd=${data.University}`" target="blank">
               &emsp;{{ data.University }}
             </a>
@@ -68,7 +68,7 @@
               </template>
             </div>
             <div id="open_maps">
-              <a href="`javascript:showWay(${data.Lng},${data.Lat});clearInfoDiv()`">
+              <a href="`javascript:showWay(${data.Lng},${data.Lat});vapp.show_info_div=false`">
                 直接去蹭饭
               </a>
               <br/>
@@ -106,8 +106,8 @@
         }
     </script>
     <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
-    <div id="seeus" onMouseDown="clearInfoDiv();$('#groupimg').slideToggle()" hidden>Show</div>
-    <img id="groupimg" onMouseDown="clearInfoDiv();$('#groupimg').slideToggle()" src="data/TG2019303/Group.jpg" alt="" />
+    <div id="seeus" onMouseDown="vapp.show_info_div=false;$('#groupimg').slideToggle()" hidden>Show</div>
+    <img id="groupimg" onMouseDown="vapp.show_info_div=false;$('#groupimg').slideToggle()" src="data/TG2019303/Group.jpg" alt="" />
 
   </body>
 

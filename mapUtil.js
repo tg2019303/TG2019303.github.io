@@ -44,7 +44,7 @@ function initMap() {
 }
 
 function aerialView(){
-  clearInfoDiv();
+  vapp.show_info_div = false;
   //去掉flag使导航信息在下一次 clearOverlays 中去除
   isNotShowWay="True"
   map.centerAndZoom(new BMap.Point(init_point[0], init_point[1]), init_zoom);

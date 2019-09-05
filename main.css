@@ -90,7 +90,6 @@ body, html,#allmap {
 }
 .slider-enter, .slider-leave-to {
   opacity: 0;
-  max-height: 0px;
 }
 #open_maps{
   text-align: right;
