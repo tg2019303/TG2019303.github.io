@@ -10,6 +10,7 @@ function enterdecode(e){
       clearAndLoad();
       $("#back_main").remove()
       $("#class_select").remove()
+      // 去除元素完成后在展示
       $(".search_box").slideToggle()
     }catch(err){
       $("#key_input").css("background-color", "red")

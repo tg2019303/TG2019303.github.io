@@ -63,7 +63,7 @@ body, html,#allmap {
   cursor: pointer !IMPORTANT;
   background-color: #ec2d2d !IMPORTANT;
 }
-.infoUniversity{
+#infoUniversity{
   border-radius: 21px;
   box-shadow: 5px 5px 5px #888888;
   color: #fff;
@@ -83,7 +83,14 @@ body, html,#allmap {
   right: 20px;
 }
 #more_action{
-  display: none;
+  overflow: hidden;
+}
+.slider-enter-active, .slider-leave-active {
+  transition: all 1s;
+}
+.slider-enter, .slider-leave-to {
+  opacity: 0;
+  max-height: 0px;
 }
 #open_maps{
   text-align: right;
@@ -106,7 +113,7 @@ body, html,#allmap {
   font-size: 12px;
   padding-left: 10px;
 }
-#univ_hilite a{
+.univ_hilite a{
   color: yellow !IMPORTANT;
 }
 #student_ul{
@@ -128,7 +135,7 @@ body, html,#allmap {
   margin-top: 0px;
   padding-left: 25px;
 }
-#student_hilite{
+.student_hilite{
   color: yellow;
 }
 #ctext{

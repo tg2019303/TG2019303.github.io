@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="icon" href="icon.ico" type="image/x-icon"/>
@@ -10,31 +11,32 @@
     <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
     <!-- To speed up aes load time -->
     <script type="text/javascript" src="aes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="main.css" type="text/css" />
     <script>
       var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?f82bdf0864b6dd0dbf0ebf006fb1ddef";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
     </script>
   </head>
+
   <body>
     <div id="allmap"></div>
     <p id="welcome_title" hidden><span id="class_name">桐高2019届303班</span><br/><b>蹭饭指北</b></p>
     <div id="key_input" hidden>
-      <input id="key" type="password" placeholder="我们的密钥 | 回车确认"  autofocus onKeyDown="enterdecode(event);"/>
+      <input id="key" type="password" placeholder="我们的密钥 | 回车确认" autofocus onKeyDown="enterdecode(event);" />
       <br/>
       <a href="javascript:goGuest()">访客入口</a>
     </div>
-    <p id="copyright" hidden>© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a><br/>
-    Powered by GitHub Pages</p>
+    <p id="copyright" hidden>© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a><br/> Powered by GitHub Pages</p>
     <div class="search_box" style="display:none">
-      <button onClick="aerialView()" >鸟瞰</button>
+      <button onClick="aerialView()">鸟瞰</button>
       <input id="search_input" placeholder="人/大学/专业" onKeyDown="entersearch(event)" />
-      <button id="search_button" onClick="search();" >搜索</button>
+      <button id="search_button" onClick="search();">搜索</button>
       <a id="add_data" href='https://www.wjx.cn/jq/42972034.aspx' target="_blank">
         <button>添加信息申请</button>
       </a>
@@ -45,20 +47,68 @@
       </select>
       <a id="back_main" href="/">我不是访客</a>
     </div>
-    <div>
+    <div id="vapp">
+      <div id="infoUniversity" v-if="show_info_div">
+        <div id="title_bar">
+          <span v-bind:class="{univ_hilite: hilite_univ}">
+            <a style="text-decoration:none;color:white" v-bind:href="`https://www.baidu.com/s?wd=${data.University}`" target="blank">
+              &emsp;{{ data.University }}
+            </a>
+          </span>
+          <span id="open_map_trigger" v-on:click="show_more=!show_more"><b>· · ·</b></span>
+        </div>
+        <div id="student_ul" v-on:click="show_info_div=false">
+          <transition name="slider" mode="out-in">
+          <div id="more_action" v-if="show_more">
+
+            <div id="univ_detail">
+              地址：{{ data.Address }}
+              <template v-if="data.Telephone != ''">
+                <br/>电话：{{ data.Telephone }}
+              </template>
+            </div>
+            <div id="open_maps">
+              <a href="`javascript:showWay(${data.Lng},${data.Lat});clearInfoDiv()`">
+                直接去蹭饭
+              </a>
+              <br/>
+              <a v-if="ios" href="`baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage`">
+                <a v-else href="`bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage`">
+                  百度地图App
+                </a>
+                <br/>
+                <a href="`http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo`" target="blank">
+                  百度地图网页版
+                </a>
+            </div>
+          </div>
+          </transition>
+          <ul>
+            <span v-for="(student, index) in data.Students">
+              <span v-bind:class="{student_hilite: index == hilite_index}" v-html="student"></span>
+            </span>
+          </ul>
+          <p style="font-size: 12px; text-align: center">
+          <br/> 轻触关闭窗口
+          </p>
+          <br>
+        </div>
+      </div>
+    </div>
     <script type="text/javascript" src="mapUtil.js"> </script>
     <script type="text/javascript" src="decoder.js"></script>
     <script type="text/javascript" src="search_parser.js"> </script>
-    <script type="text/javascript" src="infoUtil.js"> </script>
+    <script type="text/javascript" src="info.js"> </script>
     <script type="text/javascript" src="search.js"> </script>
     <script charset="utf-8">
-      function goVisit(){
-        location.href = "/?banji=" + $('#class_select option:selected').val() + "&guest=1";
-      }
+      function goVisit() {
+              location.href = "/?banji=" + $('#class_select option:selected').val() + "&guest=1";
+        }
     </script>
-      <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
-    </div>
+    <p id="ctext" hidden="True">© 2019 <a href="https://github.com/tg2019303" target="_blank">TG2019303</a></p>
     <div id="seeus" onMouseDown="clearInfoDiv();$('#groupimg').slideToggle()" hidden>Show</div>
-    <img id="groupimg" onMouseDown="clearInfoDiv();$('#groupimg').slideToggle()" src="data/TG2019303/Group.jpg" alt=""/>
+    <img id="groupimg" onMouseDown="clearInfoDiv();$('#groupimg').slideToggle()" src="data/TG2019303/Group.jpg" alt="" />
+
   </body>
+
 </html>
