@@ -12,6 +12,7 @@
     <!-- To speed up aes load time -->
     <script type="text/javascript" src="aes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
     <link rel="stylesheet" href="main.css" type="text/css" />
     <script>
       var _hmt = _hmt || [];
@@ -55,10 +56,10 @@
               &emsp;{{ data.University }}
             </a>
           </span>
-          <span id="open_map_trigger" v-on:click="show_more=!show_more"><b>· · ·</b></span>
+          <span id="open_map_trigger" v-on:click="toggleShow"><b>· · ·</b></span>
         </div>
         <div id="student_ul" v-on:click="show_info_div=false">
-          <transition name="slider" mode="out-in">
+          <transition name="slider">
           <div id="more_action" v-if="show_more">
 
             <div id="univ_detail">
@@ -68,16 +69,16 @@
               </template>
             </div>
             <div id="open_maps">
-              <a href="`javascript:showWay(${data.Lng},${data.Lat});vapp.show_info_div=false`">
+              <a v-bind:href="`javascript:showWay(${data.Lng},${data.Lat});vapp.show_info_div=false`">
                 直接去蹭饭
               </a>
               <br/>
-              <a v-if="ios" href="`baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage`">
-                <a v-else href="`bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage`">
+              <a v-if="ios" v-bind:href="`baidumap://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=ios.tg2019303.ioPage`">
+                <a v-else v-bind:href="`bdapp://map/marker?location=${data.Lat},${data.Lng}&coord_type=bd09ll&title=${data.University}&content=${data.University}&src=andr.tg2019303.ioPage`">
                   百度地图App
                 </a>
                 <br/>
-                <a href="`http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo`" target="blank">
+                <a v-bind:href="`http://api.map.baidu.com/direction?origin=latlng:${my.lat},${my.lng}|name:我的位置&destination=latlng:${data.Lat},${data.Lng}|name:${data.University}&&region=浙江&mode=driving&output=html&src=webapp.baidu.openAPIdemo`" target="blank">
                   百度地图网页版
                 </a>
             </div>
